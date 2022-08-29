@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  cursor: default;
+}
+button{
+  cursor: pointer;
+}
+input{
+  cursor: text;
+}
+
