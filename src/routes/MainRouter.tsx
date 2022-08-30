@@ -4,16 +4,18 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import ClothingCampaign from "../pages/ClothingCampaign/ClothingCampaign";
 import DashBoard from "../pages/DashBoard/DashBoard";
 import HomeLess from "../pages/HomeLess/HomeLess";
+import RegisterUser from "../pages/RegisterUser";
 
 export default function RouteMain() {
 
   return (
     <Routes>
-      <Route path="/DashBoard" element={<DashBoard />} />
-      <Route path="/AboutUs" element={<AboutUs />} />
-      <Route path="/ClothingCampaign" element={<ClothingCampaign />} />
-      <Route path="/HomeLess" element={<HomeLess />} />
-      <Route path="*" element={<Navigate replace to='/DashBoard' />} />
+      <Route path="/home" element={<DashBoard />} />
+      <Route path="/sobrenos" element={<AboutUs />} />
+      <Route path="/campanhadoagasalho" element={<ClothingCampaign />} />
+      <Route path="/pesquisadesaparecidos" element={<HomeLess />} />
+      <Route path="/cadastro" element={<RegisterUser />} />
+      <Route path="*" element={<Navigate replace to='/home' />} />
     </Routes>
   )
 }
