@@ -7,3 +7,4 @@ export const Main = styled.div`
 export const CardMap = styled.div`
 
 `
+

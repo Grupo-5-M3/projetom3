@@ -13,7 +13,9 @@ export default function ClothingCampaign() {
       </figure>
       <div>
         <h2>Pontos de Doação</h2>
-        
+        <CardMap></CardMap>
+        <CardMap></CardMap>
+        <CardMap></CardMap>
       </div>
     </Main>
   )
