@@ -1,7 +1,9 @@
 
+
+
 export default function DashBoard() {
 
   return (
-    <h1>Page DashBoard</h1>
+    <h1>Page Dashboard</h1>
   )
 }

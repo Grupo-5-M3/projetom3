@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
 import React, {  useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
+import { CgProfile } from "react-icons/cg";
 
 export default function Menu() {
   const { isLogin,setIsModal } = useContext(AuthContext);
@@ -63,9 +64,10 @@ export default function Menu() {
             Apoie Agora
           </Link>
           {isLogin ? (
-            <Link to="/home">
-              <BiLogOut /> logout
-            </Link>
+           <>
+           <Link to="/usuario"> <CgProfile/>Perfil </Link>
+           <Link to="/home"> <BiLogOut/>Logout</Link>
+           </>
           ) : (
             <Link to="/login">
               <BiLogIn /> Login

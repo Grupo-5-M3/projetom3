@@ -1,1 +1,1 @@
-export {default} from './DashBoard'
+export { default } from './DashBoard'
