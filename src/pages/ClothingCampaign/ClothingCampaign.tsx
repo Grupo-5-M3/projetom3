@@ -1,5 +1,6 @@
 import { Main, CardMap, Description, DivMaps } from "./styles";
 import imgCampanha from "../../img/campanhaAgasalho.svg"
+import Header from "../../components/Header/Header";
 
 interface ILocalDoacao{
   nome:string;
@@ -29,7 +30,10 @@ export default function ClothingCampaign() {
 ]
 
   return (
+    <>
+    
     <Main>
+    <Header/>
       <Description>
         <h2>O que é?</h2>
         <p>O objetivo da campanha é arrecadar roupas, principalmente agasalhos, além de cobertores em bom estado, que serão doados às famílias em situação de vulnerabilidade social.</p>
@@ -53,6 +57,7 @@ export default function ClothingCampaign() {
         </ul>
       </DivMaps>
     </Main>
+    </>
   )
 
 }

@@ -4,8 +4,9 @@
   box-sizing: border-box;
   list-style: none;
   cursor: default;
+  font-family: 'Inter', sans-serif;;
 }
-button{
+button,a,link,img,svg{
   cursor: pointer;
 }
 input{
