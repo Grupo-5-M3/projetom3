@@ -25,7 +25,7 @@ interface IChildrenProps {
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext)
 
 export default function AuthProvider({ children }: IChildrenProps) {
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(false)
   const [isModal, setIsModal] = useState(false);
 
   const [homeLess, setHomeLess] = useState<IHomelessProps[]>([
