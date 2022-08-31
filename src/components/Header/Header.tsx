@@ -6,6 +6,7 @@ import Menu from "../Menu/Index";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { Link } from "react-router-dom";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
+import {CgProfile} from 'react-icons/cg'
 
 export default function Header() {
   const { isLogin, isModal, setIsModal } = useContext(AuthContext);
@@ -23,10 +24,19 @@ export default function Header() {
             <Link to="/pesquisadesaparecidos">Pesquisar Pessoa</Link>
           </DivNavigate>
           <DivNav>
-          <Link to="/home">Apoie Agora </Link>
+          
           {isLogin 
-          ? (<Link to="/home"><BiLogOut /> logout</Link>) 
-          : (<Link to="/login"><BiLogIn /> Login</Link>)
+          ? (
+          <>
+          <Link to="/usuario"> <CgProfile/>Perfil </Link>
+          <Link to="/home"> <BiLogOut/>Logout</Link>
+          </>
+          ) 
+          : (          
+          <>
+            <Link to="/login"> <BiLogIn/>Login</Link>
+            </>
+            )
           }
           </DivNav>
       </DivList>
