@@ -79,6 +79,7 @@ const DivNav = styled.div`
       font-size: 0.7rem;
       color: #374c5a;
       font-weight: 600;
+      
     svg{
       margin-right: 3px;
     }
@@ -93,6 +94,7 @@ const DivNav = styled.div`
     }
   }
   @media only screen and (min-width: 880px) {
+    margin-right: 2%;
     a {
       font-size: 1rem;
     }
