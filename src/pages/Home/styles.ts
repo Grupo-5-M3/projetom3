@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-  width: 68.5%;
+  width: 100vw;
   margin: auto;
   box-shadow: 0px 0px 5px 5px grey;
 `
@@ -12,6 +12,10 @@ export const BodyImageHomeless = styled.figure`
 
   img {
     width: 100%;
+
+    @media(max-width: 600px){
+      height: 225px;
+    }
   }
 `
 
@@ -119,6 +123,7 @@ export const BodyCart = styled.ul`
 
   @media(max-width: 600px) {
     flex-direction: column;
+    overflow-y: scroll;
   }
 `
 
