@@ -28,6 +28,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [isLogin, setIsLogin] = useState(false)
   const [isModal, setIsModal] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [homeLess, setHomeLess] = useState<IHomelessProps[]>([
     {
       img: "../../img/people01.jpg",
