@@ -1,6 +1,7 @@
 import { Main, CardMap, Description, DivMaps } from "./styles";
 import imgCampanha from "../../img/campanhaAgasalho.svg"
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 interface ILocalDoacao{
   nome:string;
@@ -56,6 +57,7 @@ export default function ClothingCampaign() {
         </ul>
       </DivMaps>
     </Main>
+    <Footer/>
     </>
   )
 
