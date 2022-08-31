@@ -4,15 +4,11 @@ import RouteMain from './routes/MainRouter';
 import Global from './styles/global';
 
 function App(){
-  return (
+  return (  
     <AuthProvider>
-        <Header/>
+      <Global />
+      <RouteMain />
     </AuthProvider>
-  
-    // <AuthProvider>
-    //   <Global />
-    //   <RouteMain />
-    // </AuthProvider>
   );
 }
 
