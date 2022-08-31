@@ -1,3 +1,4 @@
+import Header from './components/Header/Header';
 import AuthProvider from './contexts/authContext/AuthContext';
 import RouteMain from './routes/MainRouter';
 import Global from './styles/global';
@@ -5,9 +6,13 @@ import Global from './styles/global';
 function App(){
   return (
     <AuthProvider>
-      <Global />
-      <RouteMain />
+        <Header/>
     </AuthProvider>
+  
+    // <AuthProvider>
+    //   <Global />
+    //   <RouteMain />
+    // </AuthProvider>
   );
 }
 
