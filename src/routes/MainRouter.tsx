@@ -14,7 +14,7 @@ export default function RouteMain() {
       <Route path="/sobrenos" element={<AboutUs />} />
       <Route path="/campanhadoagasalho" element={<ClothingCampaign />} />
       <Route path="/pesquisadesaparecidos" element={<HomeLess />} />
-      <Route path="/cadastro" element={<RegisterUser />} />
+      <Route path="/login" element={<RegisterUser />} />
       <Route path="*" element={<Navigate replace to='/home' />} />
     </Routes>
   )
