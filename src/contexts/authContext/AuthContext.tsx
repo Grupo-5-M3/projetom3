@@ -64,6 +64,41 @@ export default function AuthProvider({ children }: IChildrenProps) {
       state: "Desabrigado",
       lastLocation: "Estado da contantina, 22",
       contact: 4845698745
+    }, {
+      img: "../../img/people01.jpg",
+      name: "Carlos",
+      CPF: 123456789,
+      age: 34,
+      state: "Desabrigado",
+      lastLocation: "Estado da contantina, 22",
+      contact: 4845698745
+    },
+    {
+      img: "../../img/people02.jpg",
+      name: "Carlos",
+      CPF: 123456789,
+      age: 34,
+      state: "Desabrigado",
+      lastLocation: "Estado da contantina, 22",
+      contact: 4845698745
+    },
+    {
+      img: "../../img/people01.jpg",
+      name: "Carlos",
+      CPF: 123456789,
+      age: 34,
+      state: "Desabrigado",
+      lastLocation: "Estado da contantina, 22",
+      contact: 4845698745
+    },
+    {
+      img: "../../img/people02.jpg",
+      name: "Carlos",
+      CPF: 123456789,
+      age: 34,
+      state: "Desabrigado",
+      lastLocation: "Estado da contantina, 22",
+      contact: 4845698745
     }
   ])
 

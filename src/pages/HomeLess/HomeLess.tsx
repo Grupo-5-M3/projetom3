@@ -1,13 +1,17 @@
 import { useContext } from "react";
-import Header from "../../components/Header/Header";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
+
 import { ContainerHome } from "../Home/styles";
+import { BodyHomeLess, BodyMissing, CardHomeLess, Directions, HeaderSearchHomeLess, Search } from "./styles";
+import Header from "../../components/Header/Header";
+
+import imgSearch from "../../img/search.png"
+import imgComeBack from "../../img/ComeBack.png"
+import imgProceed from "../../img/Proceed.png"
 
 export default function HomeLess() {
 
   const { homeLess } = useContext(AuthContext)
-
-  console.log(homeLess)
 
   return (
 
@@ -15,41 +19,45 @@ export default function HomeLess() {
       <Header />
       <main>
 
-        <header>
+        <BodyHomeLess>
 
-          <div>
-            <input type="text" />
-            <button>Pesquisa</button>
-          </div>
+          <HeaderSearchHomeLess>
 
-          <div>
-            <div>
-              <button>esquerda</button>
-              <button>direita</button>
-              <button>perfil</button>
-            </div>
-          </div>
+            <Search>
+              <input type="text" placeholder="Digite sua pesquisa aqui" />
+              <button><img src={imgSearch} alt="Lupa de busca" /></button>
+            </Search>
 
-        </header>
+            <Directions>
+              <button><img src={imgComeBack} alt="Voltar lista de usuarios" /></button>
+              <button><img src={imgProceed} alt="Adicnatar lista de usuarios" /></button>
+            </Directions>
 
-        <ul>
-          {
-            homeLess.map(user =>
-              <li>
-                <img src={user.img} alt="" />
-                <p>Nome: {user.name}</p>
-                <p>CPF: {user.CPF}</p>
-                <p>Idade: {user.age}</p>
-                <p>Estado: {user.state}</p>
-                <p>Último local: {user.lastLocation}</p>
-                <p>Contato: {user.contact}</p>
-              </li>
-            )
-          }
-        </ul>
+          </HeaderSearchHomeLess>
 
+          <BodyMissing>
+            {
+              homeLess.map(user =>
+                <CardHomeLess>
+                  <figure>
+                    <img src={user.img} alt="" />
+                    <figcaption>
+                      <p> <span> Nome: </span> {user.name}</p>
+                      <p> <span> CPF: </span> {user.CPF}</p>
+                      <p> <span> Idade: </span> {user.age}</p>
+                      <p> <span> Estado: </span> {user.state}</p>
+                      <p> <span> Último local: </span> {user.lastLocation}</p>
+                      <p> <span> Contato: </span> {user.contact}</p>
+                    </figcaption>
+                  </figure>
+                </CardHomeLess>
+              )
+            }
+          </BodyMissing>
+
+        </BodyHomeLess>
       </main>
-    </ContainerHome>
+    </ContainerHome >
   )
 
 }
