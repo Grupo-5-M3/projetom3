@@ -4,7 +4,7 @@ export const Main = styled.div`
 width: 300px;
 
 h1{
-  font:var(--heading1);
+  font:var(--body);
   /* color: var(--default-orange); */
 }
 `
