@@ -31,15 +31,14 @@ export default function ClothingCampaign() {
 
   return (
     <>
-    
-    <Main>
     <Header/>
+    <Main>
       <Description>
         <h2>O que é?</h2>
         <p>O objetivo da campanha é arrecadar roupas, principalmente agasalhos, além de cobertores em bom estado, que serão doados às famílias em situação de vulnerabilidade social.</p>
       </Description>
       <figure>
-        <img src={imgCampanha} alt="" />
+        <img src={imgCampanha} alt="imagem_da_campanha" />
       </figure>
       <DivMaps>
         <h2>Pontos de Doação</h2>

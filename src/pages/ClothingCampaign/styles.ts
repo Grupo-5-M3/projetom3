@@ -30,8 +30,7 @@ export const Main = styled.div`
 `
 
 export const Description = styled.div`
-  margin: 0 auto;
-  max-width: 1300px;
+  margin: 0 20px;
 
   h2{
     font:bold 2rem 'Inter',sans-serif;
@@ -45,6 +44,11 @@ export const Description = styled.div`
     text-align: justify;
     line-height: 25px;
     color:#828282;
+  }
+
+  @media(min-width: 1300px){
+    margin: 0 auto;
+    max-width: 1300px;
   }
 `
 
