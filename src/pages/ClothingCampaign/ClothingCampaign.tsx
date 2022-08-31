@@ -51,13 +51,6 @@ export default function ClothingCampaign() {
             })
           }
         </ul>
-        {/* <span>{local[0].nome}</span>
-        <CardMap>
-          <iframe src={local[0].endereco}>
-          </iframe>
-        </CardMap>
-        <CardMap></CardMap>
-        <CardMap></CardMap> */}
       </DivMaps>
     </Main>
   )

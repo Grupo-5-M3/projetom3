@@ -4,6 +4,7 @@ export const Main = styled.div`
   margin-top: 71px;
   background-color: #fff;
   width: 100vw;
+  height: 100vh;
 
   figure{
     width: 100%;
@@ -14,22 +15,34 @@ export const Main = styled.div`
   figure img{
     width: 100%;
   }
+
+  @media(min-width: 768px){
+    figure{
+      width: 100%;
+      background-color: #02A4DC;
+      display: flex;
+      justify-content: center;
+    }
+    figure img{
+      max-width: 768px;
+    }
+  }
 `
 
 export const Description = styled.div`
-  margin: 0px 22px;
+  margin: 0 auto;
+  max-width: 1300px;
 
   h2{
-    font:bold 26px 'Inter',sans-serif;
+    font:bold 2rem 'Inter',sans-serif;
     text-align: center;
     color:#828282;
     margin-bottom: 15px;
   }
 
   p{
-    font:normal 16px 'Inter',sans-serif;
+    font:normal 1.15rem 'Inter',sans-serif;
     text-align: justify;
-    text-indent: 30px;
     line-height: 25px;
     color:#828282;
   }
@@ -40,14 +53,51 @@ export const DivMaps = styled.div`
   color: #828282;
 
   h2{
-    font:bold 26px 'Inter',sans-serif;
+    font:bold 2rem 'Inter',sans-serif;
     text-align: center;
     color:#828282;
     margin-bottom: 25px;
   }
 
   span{
-    font: italic 16px 'Inter',sans-serif;
+    font: italic 1.15rem 'Inter',sans-serif;
+  }
+
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  ul li{
+    width: 100%;
+    max-width: 400px;
+  }
+
+  @media(min-width: 768px){
+    ul{
+      margin: 0 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 25px;
+      width: 80%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+  }
+
+  @media(min-width: 1075px){
+    ul{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    ul li{
+      width: 100%;
+      max-width: 400px;
+    }
   }
 `
 
@@ -57,6 +107,7 @@ export const CardMap = styled.div`
 
   iframe{
     width: 100%;
+    max-width: 400px;
     height:300px; 
     border:0;
     /* " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" */
