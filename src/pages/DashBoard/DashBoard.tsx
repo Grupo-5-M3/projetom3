@@ -1,9 +1,19 @@
-
-
+import Form from "../../components/Form";
+import Header from "../../components/Header/Header";
+import { Container } from "./style";
 
 export default function DashBoard() {
 
   return (
-    <h1>Page Dashboard</h1>
-  )
-}
+    <>
+      <Header/>
+      <Container>
+        <div className='purple-side'>
+        </div>
+        <div className="green-side">
+          <Form/>
+        </div>
+      </Container>
+    </>
+  );
+};
