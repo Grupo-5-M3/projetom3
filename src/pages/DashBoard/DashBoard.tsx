@@ -1,17 +1,17 @@
-import { BsArrowRight } from "react-icons/bs";
+
 import { NavLink } from 'react-router-dom'
 
 import { BodyCart, BodyImageHomeless, BtnSupport, CartCoat, CartInstitution, CartProjects, CartSearch, ContainerHome, LegendImageHomeless, Message } from "../DashBoard/styles"
 
 import imgHomeless from "../../img/homeless.svg"
+import Header from "../../components/Header/Header";
+import imgArrow from "../../img/Arrow6.png"
 
 export default function DashBoard() {
 
   return (
     <ContainerHome>
-      <header>
-
-      </header>
+      <Header />
       <main>
         <BodyImageHomeless>
           <img src={imgHomeless} alt="Homem com carrinho nas ruas de são paulo" />
@@ -31,7 +31,7 @@ export default function DashBoard() {
             <div>
               <h2>Campanha do Agasalho</h2>
               <p>Clique abaixo para ajudar com doações</p>
-              <NavLink to="/campanhadoagasalho">{<BsArrowRight />}</NavLink>
+              <NavLink to="/campanhadoagasalho"><img src={imgArrow} alt="Arrow rigth" /></NavLink>
             </div>
           </CartCoat>
 
@@ -39,7 +39,7 @@ export default function DashBoard() {
             <div>
               <h2>É uma instituição buscando ajudar?</h2>
               <p>Clique abaixo para acessar</p>
-              <NavLink to="/cadastro">{<BsArrowRight />}</NavLink>
+              <NavLink to="/cadastro"><img src={imgArrow} alt="Arrow rigth" /></NavLink>
             </div>
           </CartInstitution>
 
@@ -47,7 +47,7 @@ export default function DashBoard() {
             <div>
               <h2>Nossos projetos</h2>
               <p>Clique abaixo para saber mais</p>
-              <NavLink to="/sobrenos">{<BsArrowRight />}</NavLink>
+              <NavLink to="/sobrenos"><img src={imgArrow} alt="Arrow rigth" /></NavLink>
             </div>
           </CartProjects>
 
@@ -55,7 +55,7 @@ export default function DashBoard() {
             <div>
               <h2>Está buscando alguém?</h2>
               <p>Clique abaixo para realizar uma busca</p>
-              <NavLink to="/pesquisadesaparecidos">{<BsArrowRight />}</NavLink>
+              <NavLink to="/pesquisadesaparecidos"><img src={imgArrow} alt="Arrow rigth" /></NavLink>
             </div>
           </CartSearch>
 

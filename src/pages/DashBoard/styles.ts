@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-import img from "../../img/Arrow.svg"
-
 export const ContainerHome = styled.div`
   width: 68.5%;
   margin: auto;
+  box-shadow: 0px 0px 5px 5px grey;
 `
 
 export const BodyImageHomeless = styled.figure`
@@ -29,13 +28,15 @@ export const LegendImageHomeless = styled.figcaption`
   padding: 10px;
   box-sizing: border-box;
   transition: 1s;
-  opacity: 0;
-
+  
   &:hover {
     transition: 1s;
     opacity: 1;
   }
 
+  @media(max-width: 1220px) {
+    justify-content:center ;
+  }
 `
 
 export const Message = styled.div`
@@ -63,7 +64,27 @@ export const Message = styled.div`
     color: #FFFFFF;
   }
 
+  @media(max-width: 800px) {
+    h1 {
+      font-size: 1.5em;
+    }
 
+    p {
+      font-size: 1em;
+    }
+  }
+
+  @media(max-width: 600px) {
+    h1 {
+      font-size: 1em;
+      line-height: normal;
+    }
+
+    p {
+      font-size: 1em;
+      line-height: normal;
+    }
+  }
 `
 
 export const BtnSupport = styled.button`
@@ -76,17 +97,35 @@ export const BtnSupport = styled.button`
   color: #ffffff;
   background: #18167C;
   border-radius: 5px;
+  border: 3px solid #18167C;
+
+  @media(max-width: 800px) {
+    width: 7em;
+    font-size: 1em;
+  }
+
+  @media(max-width: 700px) {
+    display: none;
+  }
 `
 
 export const BodyCart = styled.ul`
   display: flex;
   margin-top: -3px;
+
+  @media(max-width: 1220px) {
+    flex-wrap: wrap;
+  }
+
+  @media(max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 export const CartCoat = styled.li`
   display: flex;
   flex-direction: column;
-  width: 20.4375em;
+  width: 100%;
   height: 22.3125em;
   background-color: #16C0F0;
   color: #ffffff;
@@ -100,6 +139,8 @@ export const CartCoat = styled.li`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
+    
   }
 
   h2 {
@@ -120,6 +161,15 @@ export const CartCoat = styled.li`
     color: white;
   }
 
+  @media(max-width: 1220px) {
+    width: 50%;
+    height: 50%;
+  }
+
+  @media(max-width: 600px) {
+    width: 100%;
+    height: 50%;
+  }
 `
 
 export const CartInstitution = styled(CartCoat)`
