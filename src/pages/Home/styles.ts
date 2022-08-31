@@ -50,25 +50,28 @@ export const Message = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  position: absolute;
+  right:15%;
   h1 {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 2.5em;
     line-height: 48px;
     color: #FFFFFF;
   }
 
   p {
-    font-weight: 500;
+    margin: 1%;
+    font-weight: 100;
     font-size: 1.5em;
     line-height: 29px;
     text-align: center;
-    color: #FFFFFF;
+    color: #F9F9F9;
   }
 
   @media(max-width: 800px) {
+    position: static;
     h1 {
       font-size: 1.5em;
     }
