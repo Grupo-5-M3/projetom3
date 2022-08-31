@@ -18,7 +18,10 @@ export default createGlobalStyle`
 	--gray-20:rgba(224,224,224,1);
 	--gray-0:rgba(245,245,245,1);
 
-	--heading1:bold 2rem Inter;
+	--heading1:bold 2rem 'Inter',sans-serif;
+	--heading2:bold 1.7rem 'Inter',sans-serif;
+	--headline: normal 1.5rem 'Inter',sans-serif;
+	--body: normal 1.4 rem 'Inter',sans-serif;
 
 }
 
