@@ -1,10 +1,14 @@
-import React from 'react';
-import './App.css';
+import AuthProvider from './contexts/authContext/AuthContext';
+import HomeLess from './pages/HomeLess/HomeLess';
+import RouteMain from './routes/MainRouter';
+import Global from './styles/global';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <AuthProvider>
+      <Global />
+      <RouteMain />
+    </AuthProvider>
   );
 }
 
