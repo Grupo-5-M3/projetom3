@@ -4,6 +4,7 @@ export const Main = styled.div`
   margin-top: 71px;
   background-color: #fff;
   width: 100vw;
+  height: auto;
 
   figure{
     width: 100%;
@@ -39,13 +40,22 @@ export const Description = styled.div`
   }
 
   p{
-    font:normal 1.15rem 'Inter',sans-serif;
+    font:normal 1.05rem 'Inter',sans-serif;
     text-align: justify;
     line-height: 25px;
     color:#828282;
   }
 
+  @media(min-width: 500px){
+    font:normal 1.15rem 'Inter',sans-serif;
+    margin: 0 auto;
+    p{
+      text-align: center;
+    }
+    width: clamp(300px,500px,700px);
+  }
   @media(min-width: 1300px){
+    p{text-align: center}
     margin: 0 auto;
     max-width: 1300px;
   }
@@ -113,7 +123,6 @@ export const CardMap = styled.div`
     max-width: 400px;
     height:300px; 
     border:0;
-    /* " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" */
   }
 `
 
