@@ -10,9 +10,18 @@ import imgComeBack from "../../img/ComeBack.png"
 import imgProceed from "../../img/Proceed.png"
 import imgTeste from "../../img/people01.jpg"
 
+
 export default function HomeLess() {
 
-  const { homeLess, setSearchFor, searchFor, setFiltro } = useContext(AuthContext)
+  const {
+    homeLess,
+    searchFor,
+
+    setSearchFor,
+    setFiltro,
+    next,
+    goBack
+  } = useContext(AuthContext)
 
   function wanted() {
     let newArray = homeLess.filter(ele => ele.name === searchFor)
@@ -41,8 +50,8 @@ export default function HomeLess() {
             </Search>
 
             <DirectionsTop>
-              <button><img src={imgComeBack} alt="Voltar lista de usuarios" /></button>
-              <button><img src={imgProceed} alt="Adicnatar lista de usuarios" /></button>
+              <button><img src={imgComeBack} onClick={() => goBack()} alt="Voltar lista de usuarios" /></button>
+              <button><img src={imgProceed} onClick={() => next()} alt="Adiantar lista de usuarios" /></button>
             </DirectionsTop>
 
           </HeaderSearchHomeLess>
@@ -54,12 +63,14 @@ export default function HomeLess() {
                   <figure>
                     <img src={imgTeste} alt="Foto do usuario" />
                     <figcaption>
-                      <p> <span> Nome: </span> {user.name}</p>
-                      <p> <span> CPF: </span> {user.CPF}</p>
-                      <p> <span> Idade: </span> {user.age}</p>
-                      <p> <span> Estado: </span> {user.state}</p>
-                      <p> <span> Último local: </span> {user.lastLocation}</p>
-                      <p> <span> Contato: </span> {user.contact}</p>
+                      <ul>
+                        <li> <span> Nome: </span> {user.name}</li>
+                        <li> <span> CPF: </span> {user.CPF}</li>
+                        <li> <span> Idade: </span> {user.age}</li>
+                        <li> <span> Estado: </span> {user.state}</li>
+                        <li> <span> Último local: </span> {user.lastLocation}</li>
+                        <li> <span> Contato: </span> {user.contact}</li>
+                      </ul>
                     </figcaption>
                   </figure>
                 </CardHomeLess>
@@ -68,8 +79,8 @@ export default function HomeLess() {
           </BodyMissing>
 
           <DirectionsBottom>
-            <button><img src={imgComeBack} alt="Voltar lista de usuarios" /></button>
-            <button><img src={imgProceed} alt="Adicnatar lista de usuarios" /></button>
+            <button><img src={imgComeBack} onClick={() => next()} alt="Voltar lista de usuarios" /></button>
+            <button><img src={imgProceed} onClick={() => goBack()} alt="Adicnatar lista de usuarios" /></button>
           </DirectionsBottom>
         </BodyHomeLess>
       </Main>

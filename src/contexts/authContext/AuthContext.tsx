@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useState, useEffect, } from "react"
+import api from "../../server/api"
 
 interface IHomelessProps {
   img: string
@@ -6,19 +7,23 @@ interface IHomelessProps {
   CPF: number
   age: number
   state: string
-  lastLocation: string
+  lastLocation: string[]
   contact: number
 }
 
 interface IUserConstext {
   isLogin: boolean;
-  setIsLogin: (prevState: boolean) => boolean | void;
   isModal: boolean;
-  setIsModal: (prevState: boolean) => boolean | void;
   homeLess: IHomelessProps[]
   searchFor: string
+  filtro: IHomelessProps[]
+
+  setIsLogin: (prevState: boolean) => boolean | void;
+  setIsModal: (prevState: boolean) => boolean | void;
   setSearchFor: React.Dispatch<React.SetStateAction<string>>
   setFiltro: React.Dispatch<React.SetStateAction<IHomelessProps[]>>
+  next(): void
+  goBack(): void
 }
 
 interface IChildrenProps {
@@ -27,95 +32,39 @@ interface IChildrenProps {
 
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext)
 
-
-const teste = [
-  {
-    img: "../../img/people01.jpg",
-    name: "Carlos",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  },
-  {
-    img: "../../img/people02.jpg",
-    name: "Josefa",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  },
-  {
-    img: "../../img/people01.jpg",
-    name: "Camila",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  },
-  {
-    img: "../../img/people02.jpg",
-    name: "Pedro",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  }, {
-    img: "../../img/people01.jpg",
-    name: "Jose",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  },
-  {
-    img: "../../img/people02.jpg",
-    name: "Paulo",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  },
-  {
-    img: "../../img/people01.jpg",
-    name: "Guga",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  },
-  {
-    img: "../../img/people02.jpg",
-    name: "Melina",
-    CPF: 123456789,
-    age: 34,
-    state: "Desabrigado",
-    lastLocation: "Estado da contantina, 22",
-    contact: 4845698745
-  }
-]
-
-
 export default function AuthProvider({ children }: IChildrenProps) {
-  const [isLogin, setIsLogin] = useState(false)
-  const [isModal, setIsModal] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [homeLess, setHomeLess] = useState<IHomelessProps[]>([])
-
   const [searchFor, setSearchFor] = useState('')
-
+  const [isLogin, setIsLogin] = useState(false)
+  const [isModal, setIsModal] = useState(false);
   const [filtro, setFiltro] = useState<IHomelessProps[]>([] as IHomelessProps[])
+  const [nextPage, setNextPage] = useState(1)
+
+
+  function next() {
+    setNextPage(nextPage + 1)
+  }
+
+  function goBack() {
+    setNextPage(nextPage - 1)
+  }
+
+  useEffect(() => {
+    all()
+  }, [searchFor])
 
   function all() {
-    setHomeLess(teste)
+    api.get("database", {
+      params: {
+        _page: nextPage,
+        _limit: 8
+      }
+    })
+      .then(res => {
+        setHomeLess(res.data)
+      })
   }
 
   useEffect(() => {
@@ -125,19 +74,22 @@ export default function AuthProvider({ children }: IChildrenProps) {
     else {
       setHomeLess(filtro)
     }
-  }, [filtro])
-
+  }, [filtro, nextPage])
 
   return (
     <AuthContext.Provider value={{
       isLogin,
-      setIsLogin,
       isModal,
-      setIsModal,
       homeLess,
       searchFor,
+      filtro,
+
+      setIsLogin,
+      setIsModal,
       setSearchFor,
-      setFiltro
+      setFiltro,
+      goBack,
+      next
     }}>
       {children}
     </AuthContext.Provider>

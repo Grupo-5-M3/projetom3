@@ -35,14 +35,14 @@ export const Search = styled.div`
 
   input {
     border: none;
-    width: 19.125em;
-    height: 2.625em;
+    width: 306px;
+    height: 42px;
     background: #D9D9D9;
     border-radius: 8px;
     padding: 20px;
 
     @media(max-width: 600px) {
-      width: 13.5em;
+      width: 216px;
       background-color: white;
     }
   }
