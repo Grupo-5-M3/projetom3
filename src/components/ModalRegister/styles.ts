@@ -1,28 +1,51 @@
 import styled from "styled-components";
 
+export const Header = styled.header`
+  width: 100%;
+  height: 60px;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 export const DivBack = styled.div`
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
-  background-image: url("../teaser_unfpa-debates_pop-sit-rua_interno 1.png");
-  background-size: cover;
+  background: rgb(138, 37, 177);
+  background: linear-gradient(
+    90deg,
+    rgba(22, 192, 240, 1) 0%,
+    rgba(22, 192, 240, 1) 50%,
+    rgba(138, 37, 177, 1) 50%,
+    rgba(138, 37, 177, 1) 100%
+  );
+  gap: 10%;
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+  }
 
   form {
     display: flex;
     flex-direction: column;
     width: 90%;
-    max-height: 380px;
+    height: 500px;
     max-width: 40%;
     align-items: center;
     background-color: #fff;
     border-radius: 8px;
-    gap: 20px;
-    margin-top: 120px;
+    gap: 8px;
 
     h3 {
-      background-color: #16c0f0;
+      background-color: #4bd18e;
       width: 100%;
       height: 50px;
       display: flex;
@@ -35,12 +58,12 @@ export const DivBack = styled.div`
 
     label,
     input {
-      width: 70%;
+      width: 60%;
     }
 
     label {
       color: #828282;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     input {
@@ -54,33 +77,27 @@ export const DivBack = styled.div`
     }
 
     input::placeholder {
-      font-size: 14px;
+      font-size: 10px;
       color: rgba(130, 130, 130, 0.75);
     }
 
-    .register {
-      width: 180px;
-      height: 44px;
-      background-color: #16c0f0;
+    button {
+      width: 139px;
+      height: 26px;
+      background-color: #4bd18e;
       border-style: none;
       border-radius: 8px;
-      font-size: 17px;
+      font-size: 12px;
       color: #fff;
-      margin-top: 15px;
-      margin-bottom: 20px;
-      text-decoration: none;
-    }
-
-    button {
-      border-style: none;
-      background-color: transparent;
-      text-decoration: underline;
-      margin-bottom: 30px;
+      margin-top: 5px;
     }
   }
   @media screen and (max-width: 768px) {
+    p {
+      display: none;
+    }
     form {
-      width: 80%;
+      width: 90%;
       max-width: 500px;
     }
   }
