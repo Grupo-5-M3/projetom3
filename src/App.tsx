@@ -7,7 +7,7 @@ function App() {
   return (
     <AuthProvider>
       <Global />
-      <HomeLess />
+      <RouteMain />
     </AuthProvider>
   );
 }
