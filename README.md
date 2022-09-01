@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+![image](https://user-images.githubusercontent.com/75341307/187342975-6fed1811-35cb-4614-8340-21d43b64ede4.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Moradores de rua sofrem preconceito constante e são auto denominados marginais ou bandidos, muitas vezes não sendo.
+Muitos possuem família com filhos, e por falta de oportunidades sofrem nas ruas.
+Moradores de rua são invisíveis aos olhos das pessoas.
 
-## Available Scripts
+Quando alguém entra nessa situação se torna muito difícil o retorno a sua vida anterior, pois encontrar trabalho sem uma residência fixa se torna um grande desafio.
 
-In the project directory, you can run:
+![1861b1a87f8a777eebaf702afcb929bd-gpMedium](https://user-images.githubusercontent.com/75341307/187343056-76433156-c595-4a14-a73f-5192ffd4d013.jpg)
 
-### `yarn start`
+## Nossa Missão!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Dar visibilidade a essas pessoas, gerando oportunidades de emprego, moradia, e reconexão com a família e a sociedade.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para se conectar com essas pessoas se faz necessário estar presente em lugares onde elas visitam.
 
-### `yarn test`
+O objetivo do nosso projeto é cadastrar esses moradores no nosso sistema e deixar sua história disponível aqueles que querem ajudá-los.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Muitos deles tem habilidades e experiências em diversas áreas profissionais, tem estudo ou desejariam voltar a estudar, se desconectaram de suas famílias por diversos motivos e são taxados até mesmo como desaparecidos. 
 
-### `yarn build`
+No nosso sistema também será possível o cadastro de voluntários, empresas e ongs que desejam ajudar essas pessoas podendo ver esses perfis e tendo um acesso mais facilitado por saber a região onde essa pessoa se localiza atualmente seja em:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Abrigos comunitários
+- Restaurantes do governo
+- Postos de trabalho
+- Assistências sociais
+- etc
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Com isso queremos estreitar os laços entre essas pessoas e aqueles que querem ajudá-los seja com doações, ajuda física e psicológica ou oportunidades de emprego ou moradia.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Também queremos a medida que o nosso banco de dados for crescendo que seja possível a busca por pessoas que estão “desaparecidas” e reconectá-los com seus parentes. 
 
-### `yarn eject`
+Visto que por não terem moradia fixa e nem meios de comunicação acaba sendo quase impossível encontrar quem está nessa situação.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Além disso queremos que nosso sistema contenha algumas informações(noticias, pesquisas e dados) sobre esse problema social, e o link de organizações de ajuda.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
