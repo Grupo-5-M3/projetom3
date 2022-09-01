@@ -16,11 +16,13 @@ import {
 import imgHomeless from "../../img/homeless.png";
 import Header from "../../components/Header/Header";
 import imgArrow from "../../img/Arrow6.png";
+import AnimatedPage from "../../components/AnimatedPage";
 
 export default function Home() {
   return (
     <ContainerHome>
       <Header />
+      <AnimatedPage>
       <main>
         <BodyImageHomeless>
           <img
@@ -83,6 +85,7 @@ export default function Home() {
           </CartSearch>
         </BodyCart>
       </main>
+      </AnimatedPage>
     </ContainerHome>
   );
 }

@@ -7,7 +7,7 @@ export default function HomeLess() {
 
   const { homeLess } = useContext(AuthContext)
 
-  console.log(homeLess)
+  // console.log(homeLess)
 
   return (
 
