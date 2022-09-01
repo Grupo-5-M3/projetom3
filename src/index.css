@@ -6,10 +6,10 @@
   cursor: default;
   font-family: 'Inter', sans-serif;;
 }
+
 button,a,link,img,svg{
   cursor: pointer;
 }
 input{
   cursor: text;
 }
-

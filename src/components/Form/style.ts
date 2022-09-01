@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  /* position: absolute; */
   width: 18rem;
-  margin-top: 1rem;
+  margin: 0 auto;
   border-radius: 8px 8px 8px 8px;
 
   -webkit-box-shadow: 0px 6px 7px 1px rgba(0,0,0,0.69); 

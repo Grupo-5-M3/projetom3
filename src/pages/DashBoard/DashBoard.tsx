@@ -8,11 +8,7 @@ export default function DashBoard() {
     <>
       <Header/>
       <Container>
-        <div className='purple-side'>
-        </div>
-        <div className="green-side">
-          <Form/>
-        </div>
+        <Form/>
       </Container>
     </>
   );
