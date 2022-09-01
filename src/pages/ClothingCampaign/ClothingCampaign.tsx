@@ -3,6 +3,7 @@ import { Main, CardMap, Description, DivMaps } from "./styles";
 import imgCampanha from "../../img/campanhaAgasalho.svg"
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import AnimatedPage from "../../components/AnimatedPage";
 
 interface ILocalDoacao{
   nome:string;
@@ -39,6 +40,7 @@ export default function ClothingCampaign() {
   return (
     <>
     <Header/>
+    <AnimatedPage>
     <Main>
       <Description>
         <h2>O que é?</h2>
@@ -64,6 +66,7 @@ export default function ClothingCampaign() {
       </DivMaps>
     </Main>
     <Footer/>
+    </AnimatedPage>
     </>
   )
 
