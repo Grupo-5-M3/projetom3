@@ -1,10 +1,31 @@
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import Header from "../../components/Header/Header";
 import { Container } from "./style";
 
-export default function DashBoard() {
-  // interface IRegisterHomeless {
+interface IRegisterPerson {
+  name: string;
+  age: number;
+  description: string;
+  location: string;
+  volunteer: string;
+  image: string;
+};
 
-  // };
+export default function DashBoard() {
+  const schema = yup.object().shape({
+
+  });
+
+  const {register, handleSubmit, formState: { errors }} = useForm<IRegisterPerson>({
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit = (data: IRegisterPerson) => {
+    console.log(data)
+  };
 
   return (
     <>
@@ -20,30 +41,54 @@ export default function DashBoard() {
             <h1>Registre uma nova pessoa</h1>
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="input-container">
               <label htmlFor="">Nome</label>
-              <input type="text" placeholder="Digite o nome"/>
+              <input 
+                type="text" 
+                placeholder="Digite o nome"
+                {...register('name')}  
+              />
             </div>
             <div className="input-container">
               <label htmlFor="">Idade</label>
-              <input type="text" placeholder="Digite a idade"/>
+              <input 
+                type="text" 
+                placeholder="Digite a idade"
+                {...register('age')} 
+              />
             </div>
             <div className="input-container">
               <label htmlFor="">Descrição física</label>
-              <input type="text" placeholder="Descreva a aparência"/>
+              <input 
+                type="text" 
+                placeholder="Descreva a aparência"
+                {...register('description')} 
+              />
             </div>
             <div className="input-container">
               <label htmlFor="">Onde foi registrado</label>
-              <input type="text" placeholder="Identifique o local de registro"/>
+              <input 
+                type="text" 
+                placeholder="Identifique o local de registro"
+                {...register('location')} 
+              />
             </div>
             <div className="input-container">
               <label htmlFor="">Voluntário</label>
-              <input type="text" placeholder="Nome do voluntário registrando"/>
+              <input 
+                type="text" 
+                placeholder="Nome do voluntário registrando"
+                {...register('volunteer')} 
+              />
             </div>
             <div className="input-container">
               <label htmlFor="">Imagem</label>
-              <input type="file"/>
+              <input 
+                type="text"
+                placeholder='Link para a imagem'
+                {...register('image')} 
+              />
             </div>
 
             <button>Cadastrar</button>        
