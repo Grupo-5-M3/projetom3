@@ -23,10 +23,12 @@ export default function HomeLess() {
     goBack
   } = useContext(AuthContext)
 
+
   function wanted() {
     let newArray = homeLess.filter(ele => ele.name === searchFor)
     return newArray
   }
+
 
   return (
 

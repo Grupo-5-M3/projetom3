@@ -54,7 +54,7 @@ export default function ClothingCampaign() {
         <ul>
           {
             local.map((elem)=>{
-              return <li>
+              return <li key={elem.endereco}>
               <span>{elem.nome}</span>
               <CardMap>
                 <iframe src={elem.endereco}></iframe>
