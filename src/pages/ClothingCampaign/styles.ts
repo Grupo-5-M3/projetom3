@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Main = styled.div`
   margin-top: 71px;
   background-color: #fff;
-  width: 100;
-  height: 100vh;
+  width: 100vw;
+  height: auto;
 
   figure{
     width: 100%;
@@ -123,7 +123,6 @@ export const CardMap = styled.div`
     max-width: 400px;
     height:300px; 
     border:0;
-    /* " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" */
   }
 `
 

@@ -63,7 +63,7 @@ export default function ClothingCampaign() {
         </ul>
       </DivMaps>
     </Main>
-    {/* <Footer/> */}
+    <Footer/>
     </>
   )
 
