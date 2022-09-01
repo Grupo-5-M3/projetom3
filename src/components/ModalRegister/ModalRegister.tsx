@@ -1,54 +1,43 @@
 import { DivBack } from "./styles";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 export default function ModalRegister() {
+  const { setIsRegister } = useContext(AuthContext);
   return (
-    <div>
-      <DivBack>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-          saepe, repellendus perferendis nam unde pariatur aspernatur nihil
-          molestiae expedita quo animi obcaecati, non beatae officia rem quod
-          autem iure!
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-          saepe, repellendus perferendis nam unde pariatur aspernatur nihil
-          molestiae expedita quo animi obcaecati, non beatae officia rem quod
-          autem iure!
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-          saepe, repellendus perferendis nam unde pariatur aspernatur nihil
-          molestiae expedita quo animi obcaecati, non beatae officia rem quod
-          autem iure!
-        </p>
+    <DivBack>
+      <form>
+        <h3>Cadastre-se</h3>
+        <label>Nome</label>
+        <input type="text" placeholder="Digite o nome" />
 
-        <form>
-          <h3>Cadastre-se</h3>
-          <label>Nome</label>
-          <input type="text" placeholder="Digite o nome" />
+        <label>CPF</label>
+        <input type="text" placeholder="Digite o CPF" />
 
-          <label>CPF</label>
-          <input type="text" placeholder="Digite o CPF" />
+        <label>Endereço</label>
+        <input type="text" placeholder="Informe o seu endereço" />
 
-          <label>Endereço</label>
-          <input type="text" placeholder="Informe o seu endereço" />
+        <label>Telefone</label>
+        <input type="phone" placeholder="Digite o seu telefonr" />
 
-          <label>Área de atuação</label>
-          <input type="text" placeholder="Digite a área de atuação" />
+        <label>Email</label>
+        <input type="email" placeholder="Digite o email" />
 
-          <label>Nome de atuação</label>
-          <input type="text" placeholder="Digite o nome de atuação" />
+        <label>Senha</label>
+        <input type="password" placeholder="Digite a senha" />
 
-          <label>Nome da Instituição</label>
-          <input type="text" placeholder="Digite o nome da sua Instituição" />
-
-          <label>Instituição / Voluntário </label>
-          <input type="text" placeholder="Digite o tipo de ajuda" />
-
-          <button type="submit">Cadastrar</button>
-        </form>
-      </DivBack>
-    </div>
+        <button type="submit" className="register">
+          Cadastrar
+        </button>
+        <div>
+          <p>
+            Já tem cadastro?{" "}
+            <button type="button" onClick={() => setIsRegister(false)}>
+              Fazer login
+            </button>
+          </p>
+        </div>
+      </form>
+    </DivBack>
   );
 }

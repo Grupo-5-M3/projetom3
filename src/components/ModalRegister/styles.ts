@@ -12,40 +12,26 @@ export const Header = styled.header`
 export const DivBack = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  background: rgb(138, 37, 177);
-  background: linear-gradient(
-    90deg,
-    rgba(22, 192, 240, 1) 0%,
-    rgba(22, 192, 240, 1) 50%,
-    rgba(138, 37, 177, 1) 50%,
-    rgba(138, 37, 177, 1) 100%
-  );
-  gap: 10%;
-
-  p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 40%;
-  }
+  background-image: url("teaser_unfpa-debates_pop-sit-rua_interno 1.png");
+  background-size: cover;
 
   form {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 500px;
+    max-height: 500px;
     max-width: 40%;
     align-items: center;
     background-color: #fff;
     border-radius: 8px;
-    gap: 8px;
+    gap: 12px;
+    margin-top: 80px;
 
     h3 {
-      background-color: #4bd18e;
+      background-color: #16c0f0;
       width: 100%;
       height: 50px;
       display: flex;
@@ -81,15 +67,22 @@ export const DivBack = styled.div`
       color: rgba(130, 130, 130, 0.75);
     }
 
-    button {
+    .register {
       width: 139px;
       height: 26px;
-      background-color: #4bd18e;
+      background-color: #16c0f0;
       border-style: none;
       border-radius: 8px;
       font-size: 12px;
       color: #fff;
       margin-top: 5px;
+      text-decoration: none;
+    }
+
+    button {
+      border-style: none;
+      background-color: transparent;
+      text-decoration: underline;
     }
   }
   @media screen and (max-width: 768px) {

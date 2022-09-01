@@ -1,32 +1,35 @@
-import { ReactNode, createContext, useState, } from "react"
+import { ReactNode, createContext, useState } from "react";
 
 interface IHomelessProps {
-  img: string
-  name: string
-  CPF: number
-  age: number
-  state: string
-  lastLocation: string
-  contact: number
+  img: string;
+  name: string;
+  CPF: number;
+  age: number;
+  state: string;
+  lastLocation: string;
+  contact: number;
 }
 
 interface IUserConstext {
   isLogin: boolean;
   setIsLogin: (prevState: boolean) => boolean | void;
   isModal: boolean;
+  isRegister: boolean;
+  setIsRegister: (prevState: boolean) => boolean | void;
   setIsModal: (prevState: boolean) => boolean | void;
-  homeLess: IHomelessProps[]
+  homeLess: IHomelessProps[];
 }
 
 interface IChildrenProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export const AuthContext = createContext<IUserConstext>({} as IUserConstext)
+export const AuthContext = createContext<IUserConstext>({} as IUserConstext);
 
 export default function AuthProvider({ children }: IChildrenProps) {
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
   const [isModal, setIsModal] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [homeLess, setHomeLess] = useState<IHomelessProps[]>([
@@ -37,7 +40,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
       age: 34,
       state: "Desabrigado",
       lastLocation: "Estado da contantina, 22",
-      contact: 4845698745
+      contact: 4845698745,
     },
     {
       img: "../../img/people02.jpg",
@@ -46,7 +49,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
       age: 34,
       state: "Desabrigado",
       lastLocation: "Estado da contantina, 22",
-      contact: 4845698745
+      contact: 4845698745,
     },
     {
       img: "../../img/people01.jpg",
@@ -55,7 +58,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
       age: 34,
       state: "Desabrigado",
       lastLocation: "Estado da contantina, 22",
-      contact: 4845698745
+      contact: 4845698745,
     },
     {
       img: "../../img/people02.jpg",
@@ -64,19 +67,23 @@ export default function AuthProvider({ children }: IChildrenProps) {
       age: 34,
       state: "Desabrigado",
       lastLocation: "Estado da contantina, 22",
-      contact: 4845698745
-    }
-  ])
+      contact: 4845698745,
+    },
+  ]);
 
   return (
-    <AuthContext.Provider value={{
-      isLogin,
-      setIsLogin,
-      isModal,
-      setIsModal,
-      homeLess,
-    }}>
+    <AuthContext.Provider
+      value={{
+        isLogin,
+        setIsLogin,
+        isModal,
+        setIsModal,
+        isRegister,
+        setIsRegister,
+        homeLess,
+      }}
+    >
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
