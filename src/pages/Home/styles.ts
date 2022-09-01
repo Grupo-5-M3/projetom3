@@ -64,9 +64,9 @@ export const Message = styled.div`
   p {
     margin: 1%;
     font-weight: 100;
-    font-size: 1.5em;
+    font-size: 1.2rem;
     line-height: 29px;
-    text-align: center;
+    text-align: justify;
     color: #F9F9F9;
   }
 
