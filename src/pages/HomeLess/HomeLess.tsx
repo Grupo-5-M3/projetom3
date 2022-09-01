@@ -2,36 +2,48 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 import { ContainerHome } from "../Home/styles";
-import { BodyHomeLess, BodyMissing, CardHomeLess, Directions, HeaderSearchHomeLess, Search } from "./styles";
+import { BodyHomeLess, BodyMissing, CardHomeLess, DirectionsBottom, DirectionsTop, HeaderSearchHomeLess, Main, Search } from "./styles";
 import Header from "../../components/Header/Header";
 
 import imgSearch from "../../img/search.png"
 import imgComeBack from "../../img/ComeBack.png"
 import imgProceed from "../../img/Proceed.png"
+import imgTeste from "../../img/people01.jpg"
 
 export default function HomeLess() {
 
-  const { homeLess } = useContext(AuthContext)
+  const { homeLess, setSearchFor, searchFor, setFiltro } = useContext(AuthContext)
+
+  function wanted() {
+    let newArray = homeLess.filter(ele => ele.name === searchFor)
+    return newArray
+  }
 
   return (
 
     <ContainerHome>
       <Header />
-      <main>
+      <Main>
 
         <BodyHomeLess>
 
           <HeaderSearchHomeLess>
 
             <Search>
-              <input type="text" placeholder="Digite sua pesquisa aqui" />
-              <button><img src={imgSearch} alt="Lupa de busca" /></button>
+              <input
+                type="text"
+                placeholder="Digite sua pesquisa aqui"
+                onChange={event => setSearchFor(event.target.value)}
+              />
+              <button onClick={() => setFiltro(wanted())}>
+                <img src={imgSearch} alt="Lupa de busca" />
+              </button>
             </Search>
 
-            <Directions>
+            <DirectionsTop>
               <button><img src={imgComeBack} alt="Voltar lista de usuarios" /></button>
               <button><img src={imgProceed} alt="Adicnatar lista de usuarios" /></button>
-            </Directions>
+            </DirectionsTop>
 
           </HeaderSearchHomeLess>
 
@@ -40,7 +52,7 @@ export default function HomeLess() {
               homeLess.map(user =>
                 <CardHomeLess>
                   <figure>
-                    <img src={user.img} alt="" />
+                    <img src={imgTeste} alt="Foto do usuario" />
                     <figcaption>
                       <p> <span> Nome: </span> {user.name}</p>
                       <p> <span> CPF: </span> {user.CPF}</p>
@@ -55,8 +67,12 @@ export default function HomeLess() {
             }
           </BodyMissing>
 
+          <DirectionsBottom>
+            <button><img src={imgComeBack} alt="Voltar lista de usuarios" /></button>
+            <button><img src={imgProceed} alt="Adicnatar lista de usuarios" /></button>
+          </DirectionsBottom>
         </BodyHomeLess>
-      </main>
+      </Main>
     </ContainerHome >
   )
 

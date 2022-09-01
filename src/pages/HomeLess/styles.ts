@@ -8,32 +8,41 @@ export const BodyHomeLess = styled.div`
   }
 `
 
+export const Main = styled.main`
+
+  @media(max-width: 600px) {
+    height: 100vh;
+    background-color: #4BD18E;
+  }
+`
+
+
 export const HeaderSearchHomeLess = styled.header`
   display: flex;
   justify-content: space-between;
 
   @media(max-width: 600px) {
     margin: auto;
-    width: 270px;
+    width: 16.875em;
   }
 `
 export const Search = styled.div`
-  width: 361px;
-  height: 42px;
+  width: 22.5625em;
+  height: 2.625em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   input {
     border: none;
-    width: 306px;
-    height: 42px;
+    width: 19.125em;
+    height: 2.625em;
     background: #D9D9D9;
     border-radius: 8px;
     padding: 20px;
 
     @media(max-width: 600px) {
-      width: 216px;
+      width: 13.5em;
       background-color: white;
     }
   }
@@ -54,8 +63,8 @@ export const Search = styled.div`
   }
 `
 
-export const Directions = styled.div`
-  width: 60px;
+export const DirectionsTop = styled.div`
+  width: 3.75em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,6 +75,22 @@ export const Directions = styled.div`
   }
 
   @media(max-width: 600px) {
+    display: none;
+  }
+`
+export const DirectionsBottom = styled.div`
+  width: 3.75em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+
+  button {
+    border: none;
+    background-color: #4BD18E;
+  }
+
+  @media(min-width: 600px) {
     display: none;
   }
 `
@@ -89,21 +114,22 @@ export const BodyMissing = styled.ul`
 export const CardHomeLess = styled.li`
   display: flex;
   flex-direction: column;
-  width: 273px;
-  height: 347px;
+  width: 17.0625em;
+  height: 21.6875em;
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 20px;
 
   img {
-    width: 273px;
-    height: 148px;
+    width: 17.0625em;
+    height: 9.25em;
+    border-radius: 8px 8px 0px 0px;
   }
 
   figcaption {
     padding: 10px;
     display: flex;
-    height: 197px;
+    height: 12.3125em;
     flex-direction: column;
     justify-content: space-around;
 
