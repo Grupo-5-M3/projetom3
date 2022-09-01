@@ -14,16 +14,54 @@ export default function AboutUs() {
               delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
               ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
               Voluptate, et. Pariatur?
-              <br />
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+              </p>
+              <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+
+            </p>
+            <h2> O que Fazemos </h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
               delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
               ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
               Voluptate, et. Pariatur?
             </p>
-          </div>
-          <div>
-            <h2> O que Fazemos </h2>
             <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+              delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
+              ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
+              Voluptate, et. Pariatur?
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
               delectus nobis nihil odit corrupti soluta obcaecati nam vel dolor
               ducimus. Laboriosam doloremque ea rem quisquam molestiae nisi.
@@ -31,8 +69,7 @@ export default function AboutUs() {
             </p>
           </div>
         </Main>
-        <footer>
-        </footer>
+
       </DivBackground>
     </>
   );

@@ -28,6 +28,11 @@ export default function ClothingCampaign() {
     nome:"Estacão Chácara Klabin Metrô",
     endereco:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3226486609005!2d-46.63254128453309!3d-23.59275888466725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5bd1c4f7962b%3A0x20f28ad0ade78fad!2zRXN0YWPDo28gQ2jDoWNhcmEgS2xhYmluIE1ldHLDtA!5e0!3m2!1spt-PT!2sbr!4v1661882232030!5m2!1spt-PT!2sbr",
     fone:null
+  },
+  {
+    nome:"Estacão Capão Redondo Metrô",
+    endereco:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.464130074948!2d-46.77257827399548!3d-23.659354535487125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce53b8412d5577%3A0x674118f6e41e68d1!2sCap%C3%A3o%20Redondo!5e0!3m2!1spt-BR!2sbr!4v1661994188029!5m2!1spt-BR!2sbr",
+    fone:null
   }
 ]
 
@@ -58,7 +63,7 @@ export default function ClothingCampaign() {
         </ul>
       </DivMaps>
     </Main>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 
