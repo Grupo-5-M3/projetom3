@@ -1,12 +1,11 @@
 import Header from "../../components/Header/Header";
 import { DivBack } from "./styles";
 import ModalRegister from "../../components/ModalRegister/ModalRegister";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 export default function Login() {
-  const { isLogin, setIsLogin, isRegister, setIsRegister } =
-    useContext(AuthContext);
+  const { isLogin, isRegister, setIsRegister } = useContext(AuthContext);
 
   return (
     <>
