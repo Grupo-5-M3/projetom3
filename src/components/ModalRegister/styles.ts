@@ -86,9 +86,6 @@ export const DivBack = styled.div`
     }
   }
   @media screen and (max-width: 768px) {
-    p {
-      display: none;
-    }
     form {
       width: 90%;
       max-width: 500px;
