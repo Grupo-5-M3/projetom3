@@ -4,7 +4,6 @@ export const Main = styled.div`
   margin-top: 71px;
   background-color: #fff;
   width: 100vw;
-  height: 100vh;
 
   figure{
     width: 100%;
