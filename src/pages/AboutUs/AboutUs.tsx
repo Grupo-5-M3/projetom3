@@ -1,4 +1,5 @@
 import AnimatedPage from "../../components/AnimatedPage";
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { DivBackground, Main } from "./styles";
 
@@ -67,6 +68,7 @@ export default function AboutUs() {
             </div>
           </Main>
         </DivBackground>
+        <Footer color={'#1B187A'}/>
       </AnimatedPage>
     </>
   );

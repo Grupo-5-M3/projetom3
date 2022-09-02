@@ -11,7 +11,6 @@ export const BodyHomeLess = styled.div`
 export const Main = styled.main`
 
   @media(max-width: 600px) {
-    height: 100vh;
     background-color: #4BD18E;
   }
 `
