@@ -24,14 +24,8 @@ export default function Footer({color}:IFooterProps){
         <BsYoutube className="icon red" />
         <BsInstagram className="icon grad" />
       </SocialMedia>
+          
       <Content color={`${color}`}>
-        <div className="links">
-          <ul>
-            <Link className="linkLi" to="/home">Home</Link>
-            <Link className="linkLi" to="/sobrenos">Quem Somos</Link>
-            <Link className="linkLi" to="/campanhadoagasalho">Projetos</Link>
-          </ul>
-        </div>
         <div className="message">
           <p>
             "A empatia é certamente um dos mais nobres sentimentos humanos.
@@ -42,7 +36,7 @@ export default function Footer({color}:IFooterProps){
         </div>
         <div className="info">
           <div>
-            <img src={imgLogo} alt="imagem do logo" />
+            <Link to="/home"><img src={imgLogo} alt="imagem do logo" /></Link>
           </div>
           <ul>
             <li>Fone: (11)45454-5454</li>
@@ -52,7 +46,7 @@ export default function Footer({color}:IFooterProps){
         </div>
       </Content >
       <Copyright color={`${color}`}>
-        <span>Desenvolvido por Kenziers GroupFive</span>
+        <span> <Link to="/sobrenos">&copy;Desenvolvido por Kenziers GroupFive</Link></span>
       </Copyright>
     </Main>
   )
