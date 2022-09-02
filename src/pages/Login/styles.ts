@@ -14,7 +14,7 @@ export const DivBack = styled.div`
     flex-direction: column;
     width: 90%;
     max-height: 380px;
-    max-width: 40%;
+    max-width: 400px;
     align-items: center;
     background-color: #fff;
     border-radius: 8px;

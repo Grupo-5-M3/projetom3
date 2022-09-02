@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <HeaderDiv>
       <DivLogo>
-        <img src={Logo} alt="Logotipo Da Instituição" />
+        <Link to='/home'><img src={Logo} alt="Logotipo Da Instituição" /></Link>
       </DivLogo>
       {isModal && <Menu />}
       <DivList>

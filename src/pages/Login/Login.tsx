@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import api from "../../server/api";
+import Footer from "../../components/Footer/Footer";
 
 export default function Login() {
   const { isLogin, setIsLogin, isRegister, setIsRegister } =
@@ -29,7 +30,8 @@ export default function Login() {
       console.log(user);
       console.log(accessToken);
 
-      response.status === 200 && navigate("home", { replace: true });
+      response.status === 200 &&
+        navigate("pesquisadesaparecidos", { replace: true });
 
       // navigate("dashboard", { replace: true });
     } catch (error) {
@@ -53,45 +55,48 @@ export default function Login() {
   return (
     <>
       <Header />
-      {!isLogin ? (
-        !isRegister ? (
-          <DivBack>
-            <form onSubmit={handleSubmit(onSubmitFunction)}>
-              <h3>Login</h3>
-              <label>Email</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Digite seu email"
-                {...register("email")}
-              />
-              <label>Senha</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Digite sua senha"
-                {...register("password")}
-              />
+      {!isLogin &&
+        (!isRegister ? (
+          <>
+            <DivBack>
+              <form onSubmit={handleSubmit(onSubmitFunction)}>
+                <h3>Login</h3>
+                <label>Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Digite seu email"
+                  {...register("email")}
+                />
+                <label>Senha</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Digite sua senha"
+                  {...register("password")}
+                />
 
-              <button type="submit" className="register">
-                Logar
-              </button>
-              <div>
-                <p>
-                  Ainda não tem cadastro?{" "}
-                  <button type="button" onClick={() => setIsRegister(true)}>
-                    cadastre-se
-                  </button>
-                </p>
-              </div>
-            </form>
-          </DivBack>
+                <button type="submit" className="register">
+                  Logar
+                </button>
+                <div>
+                  <p>
+                    Ainda não tem cadastro?{" "}
+                    <button type="button" onClick={() => setIsRegister(true)}>
+                      cadastre-se
+                    </button>
+                  </p>
+                </div>
+              </form>
+            </DivBack>
+            <Footer color={"rgba(10,178,230,1)"} />
+          </>
         ) : (
-          <ModalRegister />
-        )
-      ) : (
-        <div>Registro</div>
-      )}
+          <>
+            <ModalRegister />
+            <Footer color={"rgba(10,178,230,1)"} />
+          </>
+        ))}
     </>
   );
 }
