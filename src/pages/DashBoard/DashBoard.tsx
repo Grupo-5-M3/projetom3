@@ -4,6 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import Header from "../../components/Header/Header";
 import { Container } from "./style";
+import api from '../../server/api';
+import { toast } from 'react-toastify';
 
 interface IRegisterPerson {
   name: string;
@@ -16,7 +18,12 @@ interface IRegisterPerson {
 
 export default function DashBoard() {
   const schema = yup.object().shape({
-
+    name: yup.string().required('Campo obrigatório'),
+    age: yup.string().required('Campo obrigatório'),
+    description: yup.string().required('Campo obrigatório').max(70),
+    location: yup.string().required('Campo obrigatório'),
+    volunteer: yup.string().required('Campo obrigatório'),
+    image: yup.string()
   });
 
   const {register, handleSubmit, formState: { errors }} = useForm<IRegisterPerson>({
@@ -24,7 +31,17 @@ export default function DashBoard() {
   });
 
   const onSubmit = (data: IRegisterPerson) => {
-    console.log(data)
+    api.post('/database', data)
+      .then((res) => {
+        console.log(res)
+        // if (res.statusText === 'Created') {
+        //   toast.success('Cadastro realizado com sucesso')
+        // };
+      })
+      .catch((err) => {
+        console.log(err);
+        // toast.error()
+      })
   };
 
   return (
@@ -49,6 +66,7 @@ export default function DashBoard() {
                 placeholder="Digite o nome"
                 {...register('name')}  
               />
+              <p className='error-message'>{errors.name?.message}</p>
             </div>
             <div className="input-container">
               <label htmlFor="">Idade</label>
@@ -57,6 +75,7 @@ export default function DashBoard() {
                 placeholder="Digite a idade"
                 {...register('age')} 
               />
+              <p className='error-message'>{errors.age?.message}</p>
             </div>
             <div className="input-container">
               <label htmlFor="">Descrição física</label>
@@ -65,14 +84,16 @@ export default function DashBoard() {
                 placeholder="Descreva a aparência"
                 {...register('description')} 
               />
+              <p className='error-message'>{errors.description?.message}</p>
             </div>
             <div className="input-container">
-              <label htmlFor="">Onde foi registrado</label>
+              <label htmlFor="">Instituição de registro</label>
               <input 
                 type="text" 
                 placeholder="Identifique o local de registro"
                 {...register('location')} 
               />
+              <p className='error-message'>{errors.location?.message}</p>
             </div>
             <div className="input-container">
               <label htmlFor="">Voluntário</label>
@@ -81,6 +102,7 @@ export default function DashBoard() {
                 placeholder="Nome do voluntário registrando"
                 {...register('volunteer')} 
               />
+              <p className='error-message'>{errors.volunteer?.message}</p>
             </div>
             <div className="input-container">
               <label htmlFor="">Imagem</label>
@@ -89,6 +111,7 @@ export default function DashBoard() {
                 placeholder='Link para a imagem'
                 {...register('image')} 
               />
+              <p className='error-message'>{errors.image?.message}</p>
             </div>
 
             <button>Cadastrar</button>        
