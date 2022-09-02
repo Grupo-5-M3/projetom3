@@ -26,16 +26,6 @@ export default function Footer({color}:IFooterProps){
       </SocialMedia>
           
       <Content color={`${color}`}>
-        <div className="links">
-          <h3>Time Scrum</h3>
-          <ul>
-             <a href=""><li><BsLinkedin/>  Patrick Cordeiro (SM)</li></a>
-             <a href=""><li><BsLinkedin/>  José A Calegari (PO)</li></a>
-             <a href=""><li><BsLinkedin/>  Henrique Pires(TL)</li></a>
-             <a href=""><li><BsLinkedin/>  Clayson Roberto (QA)</li></a>
-             <a href=""><li><BsLinkedin/>  Emerson Santos (QA)</li></a>
-          </ul>
-        </div>
         <div className="message">
           <p>
             "A empatia é certamente um dos mais nobres sentimentos humanos.
@@ -46,7 +36,7 @@ export default function Footer({color}:IFooterProps){
         </div>
         <div className="info">
           <div>
-            <img src={imgLogo} alt="imagem do logo" />
+            <Link to="/home"><img src={imgLogo} alt="imagem do logo" /></Link>
           </div>
           <ul>
             <li>Fone: (11)45454-5454</li>
@@ -56,7 +46,7 @@ export default function Footer({color}:IFooterProps){
         </div>
       </Content >
       <Copyright color={`${color}`}>
-        <span> &copy;Desenvolvido por Kenziers GroupFive</span>
+        <span> <Link to="/sobrenos">&copy;Desenvolvido por Kenziers GroupFive</Link></span>
       </Copyright>
     </Main>
   )

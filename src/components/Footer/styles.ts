@@ -3,17 +3,16 @@ interface IContainerProps{
   color?:string | null
 }
 export const Main = styled.div`
-background-color: rgb(245, 245, 245);
-display: none;
-height: 300px;
-margin-bottom: 0px;
-@media(min-width: 600px){
-  display: block;
-}
-/*#F09116 #16C0F0 #8a25b1 #4bd18e*/
-h1{
-  font:var(--body);
-}
+  height: 300px;
+  margin-bottom: 0px;
+  margin-top: 5%;
+
+  @media(min-width: 600px){
+    display: block;
+  }
+  h1{
+    font:var(--body);
+  }
 
 `
 export const SocialMedia = styled.div<IContainerProps>`
@@ -37,7 +36,7 @@ export const SocialMedia = styled.div<IContainerProps>`
   }
 
   .green:hover {
-    color: green;
+    color: rgb(8, 163, 0);
   }
 
   .blue:hover {
@@ -53,7 +52,7 @@ export const SocialMedia = styled.div<IContainerProps>`
   }
 
   .red:hover {
-    color: red;
+    color: rgb(255,0,0);
   }
 
   .blue-clear:hover {
@@ -70,8 +69,8 @@ export const Content = styled.div<IContainerProps>`
   justify-content: space-between;
 
   .message {
-  width: 30%;
-  font: italic 16px Arial;
+  width: 34%;
+  font: italic 1rem Arial;
   color:var(--gray-50);
   display: flex;
   flex-direction: column;
@@ -93,58 +92,8 @@ export const Content = styled.div<IContainerProps>`
 
   }
 
-  .links {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    font: normal 12px Arial;
-    align-items: center;
-    background-color: #fff;
-    padding-left:30px;
-    padding: 15px;
-  }
-
-  .links h3{
-    width: 100%;
-    font:bold 14px 'Inter',sans-serif;
-    padding-bottom: 10px;
-    text-align: start;
-    color: var(--gray-50);
-  }
-
-  .links svg{
-    color:rgb(38, 78, 209);
-  }
-
-  .links ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    padding-left: 0px;
-    color: var(--gray-50);
-  }
-
-  .links a{
-    text-decoration: none;
-    
-  }
-
-  .links ul li{
-    text-decoration: none;
-    color:var(--gray-50);
-    cursor: pointer;
-  }
-
-  .links span{
-    margin-left: 8px;
-  }
-
   .info{
-    width: 45%;
+    width: 66%;
     background-color: #fff;
     display: flex;
     flex-direction: row-reverse;
@@ -158,13 +107,13 @@ export const Content = styled.div<IContainerProps>`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font: normal 12px 'Inter',sans-serif;
+    font: normal 1rem 'Inter',sans-serif;
   }
 
 @media(max-width:1024px){
   .message p{
     line-height: 1;
-    font:normal 12px 'Inter',sans-serif;
+    font:normal 0.90rem 'Inter',sans-serif;
     text-align: start;
   }
 }
@@ -173,28 +122,6 @@ export const Content = styled.div<IContainerProps>`
   height: auto;
   display: flex;
   flex-direction: column;
-
-  .links{
-    display: none;
-    width: 100%;
-    height: auto;
-    /* flex-wrap: wrap; */
-    display: flex;
-  }
-
-  .links ul{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .links ul li{
-    width: 230px;
-    padding: 5px 0;
-    
-  }
 
   .message{
     width: 100%;
@@ -212,6 +139,12 @@ export const Content = styled.div<IContainerProps>`
     gap: 5px;
   }
 }
+
+@media(max-width:600px){
+  .message{
+    display: none;
+  }
+}
 `
 export const Copyright = styled.div<IContainerProps>`
 height:30px;
@@ -219,4 +152,9 @@ background-color: ${props=> props ?`${props.color}`: 'var(--default-purple)'};
 text-align: center;
 font:12px Arial;
 color:var(--gray-0);
+
+  a{
+    color: var(--gray-0);
+    text-decoration: none;
+  }
 `
