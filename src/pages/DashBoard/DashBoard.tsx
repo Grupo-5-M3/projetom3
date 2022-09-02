@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Header from "../../components/Header/Header";
 import { Container } from "./style";
 import Footer from '../../components/Footer/Footer';
+import AnimatedPage from '../../components/AnimatedPage';
 
 interface IRegisterPerson {
   name: string;
@@ -31,6 +32,7 @@ export default function DashBoard() {
   return (
     <>
     <Header/>
+      <AnimatedPage>
       <Container>
         <section className="text">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sit laudantium numquam corporis laborum culpa ducimus omnis deleniti provident cum assumenda veritatis nihil delectus maiores, facere minima aut dolor dolore.</p>
@@ -97,6 +99,7 @@ export default function DashBoard() {
         </div>
       </Container>
       <Footer color={'#354A59'}/>
+      </AnimatedPage>
     </>
   )
 };
