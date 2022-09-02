@@ -17,6 +17,9 @@ const Main = styled.main`
 overflow-y: scroll;
 width: 100%;
 background-color: #F09016;
+box-shadow: 0px 5px 5px 2px  #425563;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
 opacity: 0.9;
 display: flex;
 flex-direction: column;
@@ -28,7 +31,7 @@ div{
   display: flex;
   flex-direction: column;
   h1,h2,h3{
-    margin-top: 1%;
+    margin: 3% 0px;
     color: #1B187A;
     font-weight: 600;
     font-size: 1.5rem;
@@ -39,7 +42,7 @@ div{
     margin: 5px 0px;
   }
   p{
-    margin: 1% 0;
+    margin-bottom: 3% ;
     color: #f9f9f9;
     opacity: 3;
     font-weight: 400;

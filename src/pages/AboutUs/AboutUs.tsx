@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import AboutTeam from "../../components/AboutTeam";
 import AnimatedPage from "../../components/AnimatedPage";
 import Footer from "../../components/Footer/Footer";
