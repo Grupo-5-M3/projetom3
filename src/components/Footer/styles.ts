@@ -1,14 +1,22 @@
 import styled from "styled-components";
-
+interface IContainerProps{
+  color?:string | null
+}
 export const Main = styled.div`
+background-color: rgb(245, 245, 245);
+display: none;
 height: 300px;
 margin-bottom: 0px;
+@media(min-width: 600px){
+  display: block;
+}
 /*#F09116 #16C0F0 #8a25b1 #4bd18e*/
 h1{
   font:var(--body);
 }
+
 `
-export const SocialMedia = styled.div`
+export const SocialMedia = styled.div<IContainerProps>`
   height: 50px;
   background-color: rgb(245, 245, 245);
   display: flex;
@@ -19,7 +27,7 @@ export const SocialMedia = styled.div`
   .icon {
   width: 30px;
   height: 30px;
-  color: #8a25b1;
+  color: ${props=> props ?`${props.color}`: '#8a25b1'};
   cursor: pointer;
   transition: transform 0.75s;
 }
@@ -53,11 +61,11 @@ export const SocialMedia = styled.div`
   }
 
 `
-export const Content = styled.div`
+export const Content = styled.div<IContainerProps>`
   height: 200px;
   box-sizing: border-box;
   padding: 15px;
-  background-color: var(--default-purple);
+  background-color: ${props=> props ?`${props.color}`: 'var(--default-purple)'};
   display: flex;
   justify-content: space-between;
 
@@ -173,9 +181,9 @@ export const Content = styled.div`
   }
 }
 `
-export const Copyright = styled.div`
+export const Copyright = styled.div<IContainerProps>`
 height:30px;
-background-color: var(--default-purple);
+background-color: ${props=> props ?`${props.color}`: 'var(--default-purple)'};
 text-align: center;
 font:12px Arial;
 color:var(--gray-0);

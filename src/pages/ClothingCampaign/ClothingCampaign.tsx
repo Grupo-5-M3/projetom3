@@ -65,7 +65,7 @@ export default function ClothingCampaign() {
         </ul>
       </DivMaps>
     </Main>
-    <Footer/>
+    <Footer color={'#02A4DC'}/>
     </AnimatedPage>
     </>
   )

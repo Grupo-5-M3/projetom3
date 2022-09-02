@@ -10,10 +10,13 @@ import { FiTwitter } from "react-icons/fi";
 import imgLogo from "../../img/Logo.svg";
 import { Link } from "react-router-dom";
 
-export default function Footer(){
+interface IFooterProps{
+  color?:string | undefined
+}
+export default function Footer({color}:IFooterProps){
   return(
     <Main>
-      <SocialMedia className="media">
+      <SocialMedia className="media" color={`${color}`}>
         <BsFacebook className="icon blue" />
         <BsLinkedin className="icon blue-white" />
         <FiTwitter className="icon blue-clear" />
@@ -21,7 +24,7 @@ export default function Footer(){
         <BsYoutube className="icon red" />
         <BsInstagram className="icon grad" />
       </SocialMedia>
-      <Content>
+      <Content color={`${color}`}>
         <div className="links">
           <ul>
             <Link className="linkLi" to="/home">Home</Link>
@@ -47,8 +50,8 @@ export default function Footer(){
             <li>Endereço: Av das Esperanças - 1223 - Nações</li>
           </ul>
         </div>
-      </Content>
-      <Copyright>
+      </Content >
+      <Copyright color={`${color}`}>
         <span>Desenvolvido por Kenziers GroupFive</span>
       </Copyright>
     </Main>
