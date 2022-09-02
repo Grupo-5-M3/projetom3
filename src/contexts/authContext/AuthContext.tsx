@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useState, useEffect, } from "react"
+import HomeLess from "../../pages/HomeLess/HomeLess"
 import api from "../../server/api"
 
 interface IHomelessProps {
@@ -16,14 +17,15 @@ interface IUserConstext {
   isModal: boolean;
   homeLess: IHomelessProps[]
   searchFor: string
-  filtro: IHomelessProps[]
+  isNextDisabled: boolean
+  isGoBackDisabled: boolean
 
   setIsLogin: (prevState: boolean) => boolean | void;
   setIsModal: (prevState: boolean) => boolean | void;
   setSearchFor: React.Dispatch<React.SetStateAction<string>>
-  setFiltro: React.Dispatch<React.SetStateAction<IHomelessProps[]>>
   next(): void
   goBack(): void
+  teste(): void
 }
 
 interface IChildrenProps {
@@ -39,23 +41,58 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [searchFor, setSearchFor] = useState('')
   const [isLogin, setIsLogin] = useState(false)
   const [isModal, setIsModal] = useState(false);
-  const [filtro, setFiltro] = useState<IHomelessProps[]>([] as IHomelessProps[])
   const [nextPage, setNextPage] = useState(1)
 
+  const [isNextDisabled, setIsNextDisabled] = useState(false)
+  const [isGoBackDisabled, setIsGoBackDisabled] = useState(true)
 
   function next() {
-    setNextPage(nextPage + 1)
+    api.get("database", {
+      params: {
+        _page: nextPage + 1,
+        _limit: 8
+      }
+    })
+      .then(res => {
+
+        if (res.data.length > 0) {
+          setNextPage(nextPage + 1)
+        } else if (res.data.length < 0) {
+          setIsNextDisabled(true)
+        }
+      })
+    if (nextPage > 0) {
+      setIsGoBackDisabled(false)
+    }
   }
 
   function goBack() {
+    api.get("database", {
+      params: {
+        _page: nextPage,
+        _limit: 8
+      }
+    })
+      .then(res => {
+
+        if (nextPage <= 1) {
+          setIsGoBackDisabled(false)
+        } else if (nextPage > 1) {
+          setIsGoBackDisabled(true)
+          setIsNextDisabled(false)
+        }
+
+      })
     setNextPage(nextPage - 1)
+
+  }
+
+  function teste() {
+    api.get(`database/?name_like=${searchFor}`)
+      .then(res => setHomeLess(res.data))
   }
 
   useEffect(() => {
-    all()
-  }, [searchFor])
-
-  function all() {
     api.get("database", {
       params: {
         _page: nextPage,
@@ -65,16 +102,9 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then(res => {
         setHomeLess(res.data)
       })
-  }
 
-  useEffect(() => {
-    if (filtro.length === 0) {
-      all()
-    }
-    else {
-      setHomeLess(filtro)
-    }
-  }, [filtro, nextPage])
+  }, [searchFor, nextPage])
+
 
   return (
     <AuthContext.Provider value={{
@@ -82,14 +112,15 @@ export default function AuthProvider({ children }: IChildrenProps) {
       isModal,
       homeLess,
       searchFor,
-      filtro,
+      isNextDisabled,
+      isGoBackDisabled,
 
       setIsLogin,
       setIsModal,
       setSearchFor,
-      setFiltro,
       goBack,
-      next
+      next,
+      teste
     }}>
       {children}
     </AuthContext.Provider>
