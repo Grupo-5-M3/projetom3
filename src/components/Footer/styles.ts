@@ -86,36 +86,57 @@ export const Content = styled.div`
   }
 
   .links {
-    width: 20%;
+    width: 25%;
     height: 100%;
     display: flex;
-    font: normal 14px Arial;
-    display: flex;
+    flex-direction: column;
+    font: normal 12px Arial;
     align-items: center;
     background-color: #fff;
     padding-left:30px;
+    padding: 15px;
+  }
 
+  .links h3{
+    width: 100%;
+    font:bold 14px 'Inter',sans-serif;
+    padding-bottom: 10px;
+    text-align: start;
+    color: var(--gray-50);
+  }
+
+  .links svg{
+    color:rgb(38, 78, 209);
   }
 
   .links ul {
-    margin-top: 0;
     width: 100%;
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 70%;
+    height: 100%;
     padding-left: 0px;
     color: var(--gray-50);
   }
 
-  .linkLi{
+  .links a{
+    text-decoration: none;
+    
+  }
+
+  .links ul li{
     text-decoration: none;
     color:var(--gray-50);
+    cursor: pointer;
+  }
+
+  .links span{
+    margin-left: 8px;
   }
 
   .info{
-    width: 50%;
+    width: 45%;
     background-color: #fff;
     display: flex;
     flex-direction: row-reverse;
@@ -129,6 +150,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    font: normal 12px 'Inter',sans-serif;
   }
 
 @media(max-width:1024px){
@@ -145,15 +167,25 @@ export const Content = styled.div`
   flex-direction: column;
 
   .links{
+    display: none;
     width: 100%;
-    height: 30px;
-    flex-wrap: wrap;
+    height: auto;
+    /* flex-wrap: wrap; */
+    display: flex;
   }
 
   .links ul{
     width: 100%;
     display: flex;
+    justify-content: flex-start;
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .links ul li{
+    width: 230px;
+    padding: 5px 0;
+    
   }
 
   .message{

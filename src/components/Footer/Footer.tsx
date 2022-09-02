@@ -22,11 +22,14 @@ export default function Footer(){
         <BsInstagram className="icon grad" />
       </SocialMedia>
       <Content>
-        <div className="links">
+        {/* <div className="links">
+          <h3>Time Scrum</h3>
           <ul>
-            <Link className="linkLi" to="/home">Home</Link>
-            <Link className="linkLi" to="/sobrenos">Quem Somos</Link>
-            <Link className="linkLi" to="/campanhadoagasalho">Projetos</Link>
+             <a href=""><li><BsLinkedin/>  Patrick Cordeiro (SM)</li></a>
+             <a href=""><li><BsLinkedin/>  José A Calegari (PO)</li></a>
+             <a href=""><li><BsLinkedin/>  Henrique Pires(TL)</li></a>
+             <a href=""><li><BsLinkedin/>  Clayson Roberto (QA)</li></a>
+             <a href=""><li><BsLinkedin/>  Emerson Santos (QA)</li></a>
           </ul>
         </div>
         <div className="message">
@@ -36,7 +39,7 @@ export default function Footer(){
             condição dele."
           </p>
           <span>Lázaro de Souza Gomes</span>
-        </div>
+        </div> */}
         <div className="info">
           <div>
             <img src={imgLogo} alt="imagem do logo" />
@@ -49,7 +52,7 @@ export default function Footer(){
         </div>
       </Content>
       <Copyright>
-        <span>Desenvolvido por Kenziers GroupFive</span>
+        <span> &copy;Desenvolvido por Kenziers GroupFive</span>
       </Copyright>
     </Main>
   )
