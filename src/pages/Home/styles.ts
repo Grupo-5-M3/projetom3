@@ -147,8 +147,6 @@ export const CartCoat = styled.li`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-
-    
   }
 
   h2 {
