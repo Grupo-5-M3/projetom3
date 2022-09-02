@@ -29,6 +29,7 @@ interface IUserConstext {
   next(): void;
   goBack(): void;
   teste(): void;
+  logout(): void;
 }
 
 interface IChildrenProps {
@@ -133,6 +134,11 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then((res) => setHomeLess(res.data));
   }
 
+  function logout() {
+    setIsLogin(false);
+    localStorage.clear();
+  }
+
   useEffect(() => {
     api
       .get("database", {
@@ -163,6 +169,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
         goBack,
         next,
         teste,
+        logout,
       }}
     >
       {children}

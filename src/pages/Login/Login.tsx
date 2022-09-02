@@ -31,7 +31,7 @@ export default function Login() {
       console.log(accessToken);
 
       response.status === 200 &&
-        navigate("pesquisadesaparecidos", { replace: true });
+        navigate("/pesquisadesaparecidos", { replace: true });
 
       // navigate("dashboard", { replace: true });
     } catch (error) {

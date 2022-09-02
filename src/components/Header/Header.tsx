@@ -15,11 +15,13 @@ import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
-  const { isLogin, isModal, setIsModal } = useContext(AuthContext);
+  const { isLogin, isModal, setIsModal, logout } = useContext(AuthContext);
   return (
     <HeaderDiv>
       <DivLogo>
-        <Link to='/home'><img src={Logo} alt="Logotipo Da Instituição" /></Link>
+        <Link to="/home">
+          <img src={Logo} alt="Logotipo Da Instituição" />
+        </Link>
       </DivLogo>
       {isModal && <Menu />}
       <DivList>
@@ -37,7 +39,7 @@ export default function Header() {
                 <CgProfile />
                 Perfil{" "}
               </Link>
-              <Link to="/home">
+              <Link to="/home" onClick={logout}>
                 {" "}
                 <BiLogOut />
                 Logout

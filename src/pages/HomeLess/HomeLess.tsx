@@ -26,7 +26,6 @@ export default function HomeLess() {
     homeLess,
     isNextDisabled,
     isGoBackDisabled,
-
     teste,
     setSearchFor,
     next,
@@ -63,8 +62,8 @@ export default function HomeLess() {
           </HeaderSearchHomeLess>
 
           <BodyMissing>
-            {homeLess.map((user) => (
-              <CardHomeLess>
+            {homeLess.map((user, index) => (
+              <CardHomeLess key={index}>
                 <figure>
                   <img src={imgTeste} alt="Foto do usuario" />
                   <figcaption>
