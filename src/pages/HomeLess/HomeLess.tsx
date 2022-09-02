@@ -10,6 +10,8 @@ import imgComeBack from "../../img/ComeBack.png"
 import imgProceed from "../../img/Proceed.png"
 import imgTeste from "../../img/people01.jpg"
 import api from "../../server/api";
+import Footer from "../../components/Footer/Footer";
+
 
 export default function HomeLess() {
 
@@ -107,6 +109,7 @@ export default function HomeLess() {
           </DirectionsBottom>
         </BodyHomeLess>
       </Main>
+      <Footer color={'#435664'}/>
     </ContainerHome >
   )
 }
