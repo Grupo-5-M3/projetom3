@@ -10,10 +10,13 @@ import { FiTwitter } from "react-icons/fi";
 import imgLogo from "../../img/Logo.svg";
 import { Link } from "react-router-dom";
 
-export default function Footer(){
+interface IFooterProps{
+  color?:string | undefined
+}
+export default function Footer({color}:IFooterProps){
   return(
     <Main>
-      <SocialMedia className="media">
+      <SocialMedia className="media" color={`${color}`}>
         <BsFacebook className="icon blue" />
         <BsLinkedin className="icon blue-white" />
         <FiTwitter className="icon blue-clear" />
@@ -21,8 +24,9 @@ export default function Footer(){
         <BsYoutube className="icon red" />
         <BsInstagram className="icon grad" />
       </SocialMedia>
-      <Content>
-        {/* <div className="links">
+          
+      <Content color={`${color}`}>
+        <div className="links">
           <h3>Time Scrum</h3>
           <ul>
              <a href=""><li><BsLinkedin/>  Patrick Cordeiro (SM)</li></a>
@@ -39,7 +43,7 @@ export default function Footer(){
             condição dele."
           </p>
           <span>Lázaro de Souza Gomes</span>
-        </div> */}
+        </div>
         <div className="info">
           <div>
             <img src={imgLogo} alt="imagem do logo" />
@@ -50,8 +54,8 @@ export default function Footer(){
             <li>Endereço: Av das Esperanças - 1223 - Nações</li>
           </ul>
         </div>
-      </Content>
-      <Copyright>
+      </Content >
+      <Copyright color={`${color}`}>
         <span> &copy;Desenvolvido por Kenziers GroupFive</span>
       </Copyright>
     </Main>

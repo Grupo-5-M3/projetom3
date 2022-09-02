@@ -16,11 +16,14 @@ import {
 import imgHomeless from "../../img/homeless.png";
 import Header from "../../components/Header/Header";
 import imgArrow from "../../img/Arrow6.png";
+import AnimatedPage from "../../components/AnimatedPage";
+import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
   return (
     <ContainerHome>
       <Header />
+      <AnimatedPage>
       <main>
         <BodyImageHomeless>
           <img
@@ -64,7 +67,7 @@ export default function Home() {
 
           <CartProjects>
             <div>
-              <h2>Nossos projetos</h2>
+              <h2>Sobre Nós</h2>
               <p>Clique abaixo para saber mais</p>
               <NavLink to="/sobrenos">
                 <img src={imgArrow} alt="Arrow rigth" />
@@ -83,6 +86,8 @@ export default function Home() {
           </CartSearch>
         </BodyCart>
       </main>
+      <Footer color={'rgba(165, 0, 226, 1)'}/>
+      </AnimatedPage>
     </ContainerHome>
   );
 }
