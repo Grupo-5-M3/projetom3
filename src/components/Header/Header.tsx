@@ -13,6 +13,7 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { Link } from "react-router-dom";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import ResetPage from "../AboutTeam/ResetPage";
 
 export default function Header() {
   const { isLogin, isModal, setIsModal, logout } = useContext(AuthContext);
@@ -35,12 +36,10 @@ export default function Header() {
           {isLogin ? (
             <>
               <Link to="/usuario">
-                {" "}
                 <CgProfile />
-                Perfil{" "}
+                Perfil
               </Link>
               <Link to="/home" onClick={logout}>
-                {" "}
                 <BiLogOut />
                 Logout
               </Link>
@@ -48,7 +47,6 @@ export default function Header() {
           ) : (
             <>
               <Link to="/login">
-                {" "}
                 <BiLogIn />
                 Login
               </Link>
@@ -61,6 +59,7 @@ export default function Header() {
           <AiOutlineMenu />
         </button>
       </DivMenu>
+      <ResetPage />
     </HeaderDiv>
   );
 }

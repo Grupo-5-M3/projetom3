@@ -1,8 +1,8 @@
-
 import AboutTeam from "../../components/AboutTeam";
 import AnimatedPage from "../../components/AnimatedPage";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import ResetPage from "../../components/AboutTeam/ResetPage";
 import { DivBackground, Main } from "./styles";
 
 export default function AboutUs() {
@@ -87,11 +87,12 @@ export default function AboutUs() {
                 informações(noticias, pesquisas e dados) sobre esse problema
                 social, e o link de organizações de ajuda.{" "}
               </p>
-                <AboutTeam/>
+              <AboutTeam />
             </div>
           </Main>
         </DivBackground>
         <Footer color={"#1B187A"} />
+        <ResetPage />
       </AnimatedPage>
     </>
   );

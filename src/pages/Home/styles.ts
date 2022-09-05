@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
+  margin: 70px 0px 0px 3px;
   width: 100%;
   height: 100%;
-  margin: auto;
 `
 
 export const BodyImageHomeless = styled.figure`

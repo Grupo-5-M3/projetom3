@@ -18,10 +18,11 @@ import Header from "../../components/Header/Header";
 import imgArrow from "../../img/Arrow6.png";
 import AnimatedPage from "../../components/AnimatedPage";
 import Footer from "../../components/Footer/Footer";
+import ResetPage from "../../components/AboutTeam/ResetPage";
 
 export default function Home() {
   return (
-    <ContainerHome>
+    <ContainerHome id="top">
       <Header />
       <AnimatedPage>
       <main>
@@ -49,7 +50,7 @@ export default function Home() {
             <div>
               <h2>Campanha do Agasalho</h2>
               <p>Clique abaixo para ajudar com doações</p>
-              <NavLink to="/campanhadoagasalho">
+              <NavLink to="/campanhadoagasalho" replace>
                 <img src={imgArrow} alt="Arrow rigth" />
               </NavLink>
             </div>
@@ -87,6 +88,7 @@ export default function Home() {
         </BodyCart>
       </main>
       <Footer color={'rgba(165, 0, 226, 1)'}/>
+      <ResetPage/>
       </AnimatedPage>
     </ContainerHome>
   );

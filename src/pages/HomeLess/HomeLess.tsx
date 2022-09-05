@@ -20,8 +20,11 @@ import imgProceed from "../../img/Proceed.png";
 import imgTeste from "../../img/people01.jpg";
 import api from "../../server/api";
 import Footer from "../../components/Footer/Footer";
+import ResetPage from "../../components/AboutTeam/ResetPage";
+import AnimatedPage from "../../components/AnimatedPage";
 
 export default function HomeLess() {
+
   const {
     homeLess,
     isNextDisabled,
@@ -36,30 +39,31 @@ export default function HomeLess() {
   return (
     <ContainerHome>
       <Header />
-      <Main>
-        <BodyHomeLess>
-          <HeaderSearchHomeLess>
-            <Search>
-              <input
-                type="text"
-                placeholder="Digite sua pesquisa aqui"
-                onChange={(event) => setSearchFor(event.target.value)}
-              />
-              <button onClick={() => teste()}>
-                <img src={imgSearch} alt="Lupa de busca" />
-              </button>
-            </Search>
+      <AnimatedPage>
+        <Main>
+          <BodyHomeLess>
+            <HeaderSearchHomeLess>
+              <Search>
+                <input
+                  type="text"
+                  placeholder="Digite sua pesquisa aqui"
+                  onChange={(event) => setSearchFor(event.target.value)}
+                />
+                <button onClick={() => teste()}>
+                  <img src={imgSearch} alt="Lupa de busca" />
+                </button>
+              </Search>
 
-            <DirectionsTop>
-              <button disabled={isGoBackDisabled} onClick={() => goBack()}>
-                <img src={imgComeBack} alt="Voltar lista de usuarios" />
-              </button>
+              <DirectionsTop>
+                <button disabled={isGoBackDisabled} onClick={() => goBack()}>
+                  <img src={imgComeBack} alt="Voltar lista de usuarios" />
+                </button>
 
-              <button disabled={isNextDisabled} onClick={() => next()}>
-                <img src={imgProceed} alt="Adiantar lista de usuarios" />
-              </button>
-            </DirectionsTop>
-          </HeaderSearchHomeLess>
+                <button disabled={isNextDisabled} onClick={() => next()}>
+                  <img src={imgProceed} alt="Adiantar lista de usuarios" />
+                </button>
+              </DirectionsTop>
+            </HeaderSearchHomeLess>
 
           <BodyMissing>
             {homeLess.map((user, index) => (
@@ -100,17 +104,21 @@ export default function HomeLess() {
           </BodyMissing>
 
           <DirectionsBottom>
-            <button disabled={isGoBackDisabled} onClick={() => goBack()}>
+            <button
+              disabled={isGoBackDisabled}
+              onClick={() => goBack()}>
               <img src={imgComeBack} alt="Voltar lista de usuarios" />
             </button>
 
-            <button disabled={isNextDisabled} onClick={() => next()}>
-              <img src={imgProceed} alt="Adiantar lista de usuarios" />
-            </button>
-          </DirectionsBottom>
-        </BodyHomeLess>
-      </Main>
-      <Footer color={"#435664"} />
+              <button disabled={isNextDisabled} onClick={() => next()}>
+                <img src={imgProceed} alt="Adiantar lista de usuarios" />
+              </button>
+            </DirectionsBottom>
+          </BodyHomeLess>
+        </Main>
+        <Footer color={"#435664"} />
+        <ResetPage />
+      </AnimatedPage>
     </ContainerHome>
   );
 }

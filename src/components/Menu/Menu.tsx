@@ -4,9 +4,10 @@ import {BiLogIn,BiSearchAlt,BiHome,BiDonateHeart,BiLogOut,} from "react-icons/bi
 import { TbHeartHandshake } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
-import React, {  useContext } from "react";
+import {  useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { CgProfile } from "react-icons/cg";
+import ResetPage from "../AboutTeam/ResetPage";
 
 export default function Menu() {
   const { isLogin,setIsModal } = useContext(AuthContext);
@@ -43,38 +44,39 @@ export default function Menu() {
         </DivMatriz>
 
         <div>
-          <Link to="/home">
+          <Link to="/home" replace >
             <BiHome />
             Home
           </Link>
-          <Link to="/sobrenos">
+          <Link to="/sobrenos" replace>
             <IoIosPeople />
             Quem Somos
           </Link>
-          <Link to="/campanhadoagasalho">
+          <Link to="/campanhadoagasalho" replace>
             <TbHeartHandshake />
             Projetos
           </Link>
-          <Link to="/pesquisadesaparecidos">
+          <Link to="/pesquisadesaparecidos" replace>
             <BiSearchAlt />
             Pesquisar Pessoa
           </Link>
-          <Link to="/home">
+          <Link to="/home" replace>
             <BiDonateHeart />
             Apoie Agora
           </Link>
           {isLogin ? (
            <>
-           <Link to="/usuario"> <CgProfile/>Perfil </Link>
-           <Link to="/home"> <BiLogOut/>Logout</Link>
+           <Link to="/usuario" replace > <CgProfile/>Perfil </Link>
+           <Link to="/home" replace > <BiLogOut/>Logout</Link>
            </>
           ) : (
-            <Link to="/login">
+            <Link to="/login" replace >
               <BiLogIn /> Login
             </Link>
           )}
         </div>
       </DivLinks>
+      <ResetPage/>
     </ContainerModal>
   );
 }
