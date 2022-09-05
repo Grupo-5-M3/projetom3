@@ -62,6 +62,10 @@ export const Search = styled.div`
       background-color: white;
     }
   }
+
+  button:hover{
+    background-color: var(--gray-0);
+  }
 `
 
 export const DirectionsTop = styled.div`
