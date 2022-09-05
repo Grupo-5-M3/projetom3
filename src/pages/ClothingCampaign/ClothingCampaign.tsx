@@ -4,7 +4,7 @@ import imgCampanha from "../../img/campanhaAgasalho.svg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
-import ResetPage from "../../ResetPage";
+import ResetPage from "../../components/AboutTeam/ResetPage";
 
 interface ILocalDoacao {
   nome: string;

@@ -18,7 +18,7 @@ import Header from "../../components/Header/Header";
 import imgArrow from "../../img/Arrow6.png";
 import AnimatedPage from "../../components/AnimatedPage";
 import Footer from "../../components/Footer/Footer";
-import ResetPage from "../../ResetPage";
+import ResetPage from "../../components/AboutTeam/ResetPage";
 
 export default function Home() {
   return (
@@ -33,7 +33,7 @@ export default function Home() {
           />
           <LegendImageHomeless>
             <Message>
-              <h1>A parte invisível do Brasil</h1>
+              <h1>Quando a rua se torna abrigo...</h1>
               <p>
                 Moradores de rua sofrem preconceito constante e são auto
                 denominados marginais ou bandidos, muitas vezes não sendo.

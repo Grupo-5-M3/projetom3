@@ -7,7 +7,7 @@ import { IoIosPeople } from "react-icons/io";
 import {  useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { CgProfile } from "react-icons/cg";
-import ResetPage from "../../ResetPage";
+import ResetPage from "../AboutTeam/ResetPage";
 
 export default function Menu() {
   const { isLogin,setIsModal } = useContext(AuthContext);
