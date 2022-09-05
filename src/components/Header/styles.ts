@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const HeaderDiv = styled.div`
+position: fixed;
+top: 0;
+background-color: white;
+z-index: 1;
   width: 100%;
   height: 70px;
   display: flex;
