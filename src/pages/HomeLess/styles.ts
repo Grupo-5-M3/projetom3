@@ -19,6 +19,8 @@ export const Main = styled.main`
 export const HeaderSearchHomeLess = styled.header`
   display: flex;
   justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
 
   @media(max-width: 600px) {
     margin: auto;
@@ -95,6 +97,8 @@ export const DirectionsBottom = styled.div`
 `
 
 export const BodyMissing = styled.ul`
+  max-width:1240px;
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
