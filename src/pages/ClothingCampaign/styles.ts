@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  margin-top: 71px;
+
+  margin-top: 141px;
   background-color: #fff;
   width: 100%;
   height: auto;
