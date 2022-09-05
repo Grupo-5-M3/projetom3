@@ -7,6 +7,7 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { Link } from "react-router-dom";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import {CgProfile} from 'react-icons/cg'
+import ResetPage from "../../ResetPage";
 
 export default function Header() {
   const { isLogin, isModal, setIsModal } = useContext(AuthContext);
@@ -45,6 +46,7 @@ export default function Header() {
           <AiOutlineMenu />
         </button>
       </DivMenu>
+      <ResetPage/>
     </HeaderDiv>
   );
 }

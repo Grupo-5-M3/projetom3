@@ -22,7 +22,7 @@ import ResetPage from "../../ResetPage";
 
 export default function Home() {
   return (
-    <ContainerHome>
+    <ContainerHome id="top">
       <Header />
       <AnimatedPage>
       <main>
