@@ -44,10 +44,8 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [isRegister, setIsRegister] = useState(false);
   const [searchFor, setSearchFor] = useState("");
   const [nextPage, setNextPage] = useState(1);
-
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [homeLess, setHomeLess] = useState<IHomelessProps[]>([
     {
       img: "../../img/people01.jpg",
