@@ -35,7 +35,7 @@ export default function DashBoard() {
       .then((res) => {
         console.log(res)
         // if (res.statusText === 'Created') {
-        //   toast.success('Cadastro realizado com sucesso')
+        //   toast.success('Cadastgitro realizado com sucesso')
         // };
       })
       .catch((err) => {
