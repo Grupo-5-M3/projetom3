@@ -9,10 +9,10 @@ const ContainerModal = styled.div`
   justify-content: flex-end;
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
-  z-index: 1;
-  @media only screen and (min-width : 600px){
-      display:none
-    }
+  z-index: 2;
+  @media only screen and (min-width: 600px) {
+    display: none;
+  }
 `;
 const DivLinks = styled.div`
   border-top-left-radius: 8px;
@@ -35,16 +35,16 @@ const DivLinks = styled.div`
       text-decoration: none;
       font-weight: 400;
       color: #f9f9f9;
-      :hover{
-        color: #F09116
+      :hover {
+        color: #f09116;
       }
       svg {
         margin-right: 5px;
         color: white;
         cursor: pointer;
-        :hover{
-        color: #F09116
-      }
+        :hover {
+          color: #f09116;
+        }
       }
     }
   }

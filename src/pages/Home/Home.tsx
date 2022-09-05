@@ -32,7 +32,7 @@ export default function Home() {
           />
           <LegendImageHomeless>
             <Message>
-              <h1>A parte invisível do Brasil</h1>
+              <h1>Quando a rua se torna abrigo...</h1>
               <p>
                 Moradores de rua sofrem preconceito constante e são auto
                 denominados marginais ou bandidos, muitas vezes não sendo.
