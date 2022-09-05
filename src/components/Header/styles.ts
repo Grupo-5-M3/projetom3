@@ -47,6 +47,12 @@ const DivNavigate = styled.div`
       font-size: 0.7rem;
       color: #374c5a;
       font-weight: 600;
+      transition: 0.5s;
+      :hover{
+        color: #A500E2;
+        transition: 0.5s;
+        transform: scale(1.1);
+      }
     }
   }
   @media only screen and (min-width: 615px) {
@@ -83,6 +89,12 @@ const DivNav = styled.div`
       font-size: 0.7rem;
       color: #374c5a;
       font-weight: 600;
+      transition: 0.5s;
+      :hover{
+        color: #A500E2;
+        transition: 0.5s;
+        transform: scale(1.1);
+      }
       
     svg{
       margin-right: 3px;
