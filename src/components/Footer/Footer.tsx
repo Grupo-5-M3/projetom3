@@ -10,10 +10,13 @@ import { FiTwitter } from "react-icons/fi";
 import imgLogo from "../../img/Logo.svg";
 import { Link } from "react-router-dom";
 
-export default function Footer(){
+interface IFooterProps{
+  color?:string | undefined
+}
+export default function Footer({color}:IFooterProps){
   return(
     <Main>
-      <SocialMedia className="media">
+      <SocialMedia className="media" color={`${color}`}>
         <BsFacebook className="icon blue" />
         <BsLinkedin className="icon blue-white" />
         <FiTwitter className="icon blue-clear" />
@@ -21,14 +24,8 @@ export default function Footer(){
         <BsYoutube className="icon red" />
         <BsInstagram className="icon grad" />
       </SocialMedia>
-      <Content>
-        <div className="links">
-          <ul>
-            <Link className="linkLi" to="/home">Home</Link>
-            <Link className="linkLi" to="/sobrenos">Quem Somos</Link>
-            <Link className="linkLi" to="/campanhadoagasalho">Projetos</Link>
-          </ul>
-        </div>
+          
+      <Content color={`${color}`}>
         <div className="message">
           <p>
             "A empatia é certamente um dos mais nobres sentimentos humanos.
@@ -39,7 +36,7 @@ export default function Footer(){
         </div>
         <div className="info">
           <div>
-            <img src={imgLogo} alt="imagem do logo" />
+            <Link to="/home"><img src={imgLogo} alt="imagem do logo" /></Link>
           </div>
           <ul>
             <li>Fone: (11)45454-5454</li>
@@ -47,9 +44,9 @@ export default function Footer(){
             <li>Endereço: Av das Esperanças - 1223 - Nações</li>
           </ul>
         </div>
-      </Content>
-      <Copyright>
-        <span>Desenvolvido por Kenziers GroupFive</span>
+      </Content >
+      <Copyright color={`${color}`}>
+        <span> <Link to="/sobrenos">&copy;Desenvolvido por Kenziers GroupFive</Link></span>
       </Copyright>
     </Main>
   )
