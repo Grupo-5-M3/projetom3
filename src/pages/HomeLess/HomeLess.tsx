@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { BsSearch } from "react-icons/bs";
+import { GrNext, GrPrevious } from "react-icons/gr";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 import { ContainerHome } from "../Home/styles";
@@ -22,6 +24,7 @@ import api from "../../server/api";
 import Footer from "../../components/Footer/Footer";
 import ResetPage from "../../components/AboutTeam/ResetPage";
 import AnimatedPage from "../../components/AnimatedPage";
+import { Link } from "react-router-dom";
 
 export default function HomeLess() {
 
@@ -50,17 +53,20 @@ export default function HomeLess() {
                   onChange={(event) => setSearchFor(event.target.value)}
                 />
                 <button onClick={() => teste()}>
-                  <img src={imgSearch} alt="Lupa de busca" />
+                  {/* <img src={imgSearch} alt="Lupa de busca" /> */}
+                  <BsSearch/>
                 </button>
               </Search>
 
               <DirectionsTop>
                 <button disabled={isGoBackDisabled} onClick={() => goBack()}>
-                  <img src={imgComeBack} alt="Voltar lista de usuarios" />
+                  {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
+                  <GrPrevious/>
                 </button>
 
                 <button disabled={isNextDisabled} onClick={() => next()}>
-                  <img src={imgProceed} alt="Adiantar lista de usuarios" />
+                  {/* <img src={imgProceed} alt="Adiantar lista de usuarios" /> */}
+                  <GrNext/>
                 </button>
               </DirectionsTop>
             </HeaderSearchHomeLess>
@@ -68,6 +74,7 @@ export default function HomeLess() {
           <BodyMissing>
             {homeLess.map((user, index) => (
               <CardHomeLess key={index}>
+                <Link to="#">
                 <figure>
                   <img src={imgTeste} alt="Foto do usuario" />
                   <figcaption>
@@ -99,6 +106,7 @@ export default function HomeLess() {
                     </ul>
                   </figcaption>
                 </figure>
+                </Link>
               </CardHomeLess>
             ))}
           </BodyMissing>
@@ -107,11 +115,13 @@ export default function HomeLess() {
             <button
               disabled={isGoBackDisabled}
               onClick={() => goBack()}>
-              <img src={imgComeBack} alt="Voltar lista de usuarios" />
+              {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
+              <GrPrevious/>
             </button>
 
               <button disabled={isNextDisabled} onClick={() => next()}>
-                <img src={imgProceed} alt="Adiantar lista de usuarios" />
+                {/* <img src={imgProceed} alt="Adiantar lista de usuarios" /> */}
+                <GrNext/>
               </button>
             </DirectionsBottom>
           </BodyHomeLess>
