@@ -105,6 +105,13 @@ export const BtnSupport = styled.button`
   background: #18167C;
   border-radius: 5px;
   border: 3px solid #18167C;
+  transition:all 0.5s;
+
+  :hover{
+    transition:all 0.5s;
+    box-shadow: 0 0 6px 1px #f5f5f5;
+    background-color: rgba(24, 22, 124,0.5);
+  }
 
   @media(max-width: 800px) {
     width: 7em;
@@ -139,14 +146,30 @@ export const CartCoat = styled.li`
   color: #ffffff;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s;
+
+  :hover{
+    background-color: rgba(10,178,230,0.7);
+    transition: all 0.5s;
+  }
 
   div {
     display: flex;
     width: 12.9375em;
-    height: 10.3125em;
+    height: 100%;
     flex-direction: column;
     align-items: center;
+    gap:15px;
     justify-content: space-around;
+    cursor:pointer;
+    transition: all 1.5s;
+  }
+
+  :hover{
+    div{
+      transition: all 1.5s;
+      transform: scale(1.5);
+    }
   }
 
   h2 {
@@ -154,6 +177,7 @@ export const CartCoat = styled.li`
     line-height: 24px;
     text-align: center;
     color: #FFFFFF;
+    cursor:pointer;
   }
 
   p {
@@ -161,10 +185,13 @@ export const CartCoat = styled.li`
     line-height: 18px;
     text-align: center;
     color: #FFFFFF;
+    cursor:pointer;
   }
 
   a {
     color: white;
+    text-decoration: none;
+    cursor:pointer;
   }
 
   @media(max-width: 1220px) {
@@ -179,13 +206,25 @@ export const CartCoat = styled.li`
 `
 
 export const CartInstitution = styled(CartCoat)`
-  background-color: #8A25B1;
+  background-color: var(--default-purple);
+
+  :hover{
+    background-color:rgba(165,0,226,0.8);
+  }
 `
 
 export const CartProjects = styled(CartCoat)`
   background-color: #F09016;
+
+  :hover{
+    background-color: rgba(240,145,22,0.8);
+  }
 `
 
 export const CartSearch = styled(CartCoat)`
   background-color: #4BD18E;
+
+  :hover{
+    background-color: rgba(75,209,142,0.8);
+  }
 `
