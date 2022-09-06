@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import {
   BodyCart,
@@ -19,8 +19,12 @@ import imgArrow from "../../img/Arrow6.png";
 import AnimatedPage from "../../components/AnimatedPage";
 import Footer from "../../components/Footer/Footer";
 import ResetPage from "../../components/AboutTeam/ResetPage";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 export default function Home() {
+  const {isLogin} = useContext(AuthContext)
+  const navigate = useNavigate()
   return (
     <ContainerHome id="top">
       <Header />
@@ -41,49 +45,49 @@ export default function Home() {
                 sofrem nas ruas. Moradores de rua são invisíveis aos olhos das
                 pessoas.
               </p>
-              <BtnSupport>Apoiar</BtnSupport>
+              <BtnSupport onClick={()=> isLogin? navigate('/usuario') : navigate('/login')}>Apoiar</BtnSupport>
             </Message>
           </LegendImageHomeless>
         </BodyImageHomeless>
         <BodyCart>
-          <CartCoat>
-            <div>
-              <h2>Campanha do Agasalho</h2>
-              <p>Clique abaixo para ajudar com doações</p>
-              <NavLink to="/campanhadoagasalho" replace>
+          <CartCoat onClick={()=>navigate('/campanhadoagasalho')}>
+            <NavLink to="/campanhadoagasalho" replace>
+              <div>
+                <h2>Campanha do Agasalho</h2>
+                <p>Clique abaixo para ajudar com doações</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartCoat>
 
-          <CartInstitution>
-            <div>
-              <h2>É uma instituição buscando ajudar?</h2>
-              <p>Clique abaixo para acessar</p>
-              <NavLink to="/cadastro">
+          <CartInstitution onClick={()=> isLogin? navigate('/usuario') : navigate('/login')}>
+            <NavLink to="/login">
+              <div>
+                <h2>É uma instituição buscando ajudar?</h2>
+                <p>Clique abaixo para acessar</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartInstitution>
 
-          <CartProjects>
-            <div>
-              <h2>Sobre Nós</h2>
-              <p>Clique abaixo para saber mais</p>
-              <NavLink to="/sobrenos">
+          <CartProjects onClick={()=>navigate('/sobrenos')}>
+            <NavLink to="/sobrenos">
+              <div>
+                <h2>Sobre Nós</h2>
+                <p>Clique abaixo para saber mais</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartProjects>
 
-          <CartSearch>
-            <div>
-              <h2>Está buscando alguém?</h2>
-              <p>Clique abaixo para realizar uma busca</p>
-              <NavLink to="/pesquisadesaparecidos">
+          <CartSearch onClick={()=>navigate('/pesquisadesaparecidos')}>
+            <NavLink to="/pesquisadesaparecidos">
+              <div>
+                <h2>Está buscando alguém?</h2>
+                <p>Clique abaixo para realizar uma busca</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartSearch>
         </BodyCart>
       </main>

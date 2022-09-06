@@ -104,7 +104,14 @@ export const BtnSupport = styled.button`
   color: #ffffff;
   background: #18167C;
   border-radius: 5px;
-  border: 3px solid #18167C;
+  border: 3px solid #18167c;
+  transition:all 0.5s;
+
+  :hover{
+    transition:all 0.5s;
+    background-color: rgba(24, 22, 124,0.5);
+    border: 3px solid transparent;
+  }
 
   @media(max-width: 800px) {
     width: 7em;
@@ -133,27 +140,54 @@ export const BodyCart = styled.ul`
 export const CartCoat = styled.li`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   width: 100%;
   height: 22.3125em;
   background-color: #16C0F0;
   color: #ffffff;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition-property: border-radius,box-shadow,tranform;
+  transition-duration:2s;
+  transition-timing-function: cubic-bezier(cubic-bezier(.15,.89,.85,.26));
+  img{
+    position: relative;
+    left: -220px;
+    transform: translateX(220px);
+    
+  }
+  
+:hover{
+  transition: 0.5s;
+  transform: scale(1.07) translateX(20px);
+  border-radius: 10%;
+  transition-duration:0.5s;
+  transition-timing-function: cubic-bezier(cubic-bezier(.15,.89,.85,.26));
 
+  img {    
+    transition: 2s;
+    transform: translateX(220px)
+    op
+  }
+}
   div {
     display: flex;
     width: 12.9375em;
-    height: 10.3125em;
+    height: 100%;
     flex-direction: column;
     align-items: center;
+    gap:15px;
     justify-content: space-around;
+    cursor:pointer;
+    transition: all 1.5s;
   }
-
   h2 {
     font-size: 1.25em;
     line-height: 24px;
     text-align: center;
     color: #FFFFFF;
+    cursor:pointer;
   }
 
   p {
@@ -161,10 +195,13 @@ export const CartCoat = styled.li`
     line-height: 18px;
     text-align: center;
     color: #FFFFFF;
+    cursor:pointer;
   }
 
   a {
     color: white;
+    text-decoration: none;
+    cursor:pointer;
   }
 
   @media(max-width: 1220px) {
@@ -179,13 +216,25 @@ export const CartCoat = styled.li`
 `
 
 export const CartInstitution = styled(CartCoat)`
-  background-color: #8A25B1;
+  background-color: var(--default-purple);
+
+  :hover{
+    transform: scale(1.1);
+  }
 `
 
 export const CartProjects = styled(CartCoat)`
   background-color: #F09016;
+
+  :hover{
+    transform: scale(1.1);
+  }
 `
 
 export const CartSearch = styled(CartCoat)`
   background-color: #4BD18E;
+
+  :hover{
+    transform: scale(1.1) translateX(-20px);
+  }
 `
