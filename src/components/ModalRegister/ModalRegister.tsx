@@ -5,11 +5,35 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import api from "../../server/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+interface IRegisterPerson {
+  name: string;
+  cpf: string;
+  adress: string;
+  phone: number;
+  email: string;
+  password: string;
+}
 
 export default function ModalRegister() {
   const { setIsRegister } = useContext(AuthContext);
 
-  const onSubmitFunction = async (data: any) => {
+  const formSchema = yup.object().shape({
+    email: yup.string().required("Email obrigatório"),
+    password: yup.string().required("Senha obrigatória"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IRegisterPerson>({
+    resolver: yupResolver(formSchema),
+  });
+
+  const onSubmitFunction = async (data: IRegisterPerson) => {
     console.log(data);
     try {
       const response = await api.post("register", {
@@ -25,26 +49,16 @@ export default function ModalRegister() {
       console.log(response);
       console.log(user);
 
-      response.status === 201 && setIsRegister(false);
+      response.status === 201 &&
+        toast.success("Registro realizado com sucesso");
+      setTimeout(() => setIsRegister(false), 2500);
 
       // navigate("dashboard", { replace: true });
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      toast.error(`Error: ${error.response.data}`);
+      console.log(error.response.data);
     }
   };
-
-  const formSchema = yup.object().shape({
-    email: yup.string().required("Email obrigatório"),
-    password: yup.string().required("Senha obrigatória"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(formSchema),
-  });
 
   return (
     <DivBack>
@@ -96,6 +110,7 @@ export default function ModalRegister() {
           </p>
         </div>
       </form>
+      <ToastContainer autoClose={1500} />
     </DivBack>
   );
 }
