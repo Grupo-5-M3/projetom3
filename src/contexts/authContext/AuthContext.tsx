@@ -1,6 +1,9 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
 import HomeLess from "../../pages/HomeLess/HomeLess";
 import api from "../../server/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 interface IHomelessProps {
   img: string;
   name: string;
@@ -29,7 +32,7 @@ interface IUserConstext {
   next(): void;
   goBack(): void;
   teste(): void;
-  logout(): void;
+  logout(e: any): void;
 }
 
 interface IChildrenProps {
@@ -84,6 +87,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
       contact: 4845698745,
     },
   ]);
+  const navigate = useNavigate();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
@@ -132,9 +136,15 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then((res) => setHomeLess(res.data));
   }
 
-  function logout() {
-    setIsLogin(false);
-    localStorage.clear();
+  function logout(this: any, e: any) {
+    e.preventDefault();
+    toast.success("Logout realizado com sucesso!");
+    console.dir(this);
+    setTimeout(() => {
+      setIsLogin(false);
+      localStorage.clear();
+      navigate("/home", { replace: true });
+    }, 3000);
   }
 
   useEffect(() => {
