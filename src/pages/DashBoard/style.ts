@@ -100,6 +100,8 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1024px) {
+    margin: 0;
+
     .text {
       display: flex;
       flex-direction: column;
