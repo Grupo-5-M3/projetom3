@@ -36,11 +36,12 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
+  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
+
   useEffect(() => {
     const token = localStorage.getItem('@TOKEN')
     token ? setIsLogin(true) : setIsLogin(false)
   }, [])
-  const [homeLess, setHomeLess] = useState<IHomelessProps[]>([]);
 
   function next() {
     api
