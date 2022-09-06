@@ -7,6 +7,7 @@ import HomeLess from "../pages/HomeLess/HomeLess";
 import Login from "../pages/Login";
 import RegisterUser from "../pages/RegisterUser";
 import { AnimatePresence } from "framer-motion";
+import PrivateRoutes from "../components/PrivateRoutes/PrivateRoutes";
 
 export default function RouteMain() {
   const location = useLocation();
@@ -18,7 +19,9 @@ export default function RouteMain() {
         <Route path="/campanhadoagasalho" element={<ClothingCampaign />} />
         <Route path="/pesquisadesaparecidos" element={<HomeLess />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/usuario" element={<DashBoard />} />
+        <Route element={<PrivateRoutes/>}>
+          <Route path="/usuario" element={<DashBoard />} />
+        </Route>
         <Route path="*" element={<Navigate replace to="/home" />} />
       </Routes>
     </AnimatePresence>
