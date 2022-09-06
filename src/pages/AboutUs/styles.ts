@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import help from "../../img/help.png";
 const DivBackground = styled.div`
+
   width: 100%;
-  margin: 3px 0px;
+  margin: 70px 0px 0px 3px;
   z-index: -1;
   background-image: url(${help});
   background-repeat: no-repeat;

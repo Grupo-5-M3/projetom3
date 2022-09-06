@@ -28,7 +28,7 @@ export const DivBack = styled.div`
     background-color: #fff;
     border-radius: 8px;
     gap: 12px;
-    margin-top: 80px;
+    margin-top: 150px;
 
     h3 {
       background-color: #16c0f0;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DivBack = styled.div`
+  margin-top: 70px;
   width: 100%;
   height: 100%;
   display: flex;

@@ -45,6 +45,7 @@ export default function Login() {
       const { user, accessToken } = response.data;
       api.defaults.headers.common.authorization = `Bearer ${accessToken}`;
       localStorage.setItem("@TOKEN", accessToken);
+      localStorage.setItem("@userId", user.id);
 
       console.log(response);
       console.log(user);
