@@ -47,43 +47,43 @@ export default function Home() {
         </BodyImageHomeless>
         <BodyCart>
           <CartCoat>
-            <div>
-              <h2>Campanha do Agasalho</h2>
-              <p>Clique abaixo para ajudar com doações</p>
-              <NavLink to="/campanhadoagasalho" replace>
+            <NavLink to="/campanhadoagasalho" replace>
+              <div>
+                <h2>Campanha do Agasalho</h2>
+                <p>Clique abaixo para ajudar com doações</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartCoat>
 
           <CartInstitution>
-            <div>
-              <h2>É uma instituição buscando ajudar?</h2>
-              <p>Clique abaixo para acessar</p>
-              <NavLink to="/cadastro">
+            <NavLink to="/cadastro">
+              <div>
+                <h2>É uma instituição buscando ajudar?</h2>
+                <p>Clique abaixo para acessar</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartInstitution>
 
           <CartProjects>
-            <div>
-              <h2>Sobre Nós</h2>
-              <p>Clique abaixo para saber mais</p>
-              <NavLink to="/sobrenos">
+            <NavLink to="/sobrenos">
+              <div>
+                <h2>Sobre Nós</h2>
+                <p>Clique abaixo para saber mais</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartProjects>
 
           <CartSearch>
-            <div>
-              <h2>Está buscando alguém?</h2>
-              <p>Clique abaixo para realizar uma busca</p>
-              <NavLink to="/pesquisadesaparecidos">
+            <NavLink to="/pesquisadesaparecidos">
+              <div>
+                <h2>Está buscando alguém?</h2>
+                <p>Clique abaixo para realizar uma busca</p>
                 <img src={imgArrow} alt="Arrow rigth" />
-              </NavLink>
-            </div>
+              </div>
+            </NavLink>
           </CartSearch>
         </BodyCart>
       </main>
