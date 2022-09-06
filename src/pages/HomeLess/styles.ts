@@ -135,6 +135,13 @@ export const CardHomeLess = styled.li`
     span {
       font-weight: 900;
     }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-around;
+    }
   }
 
   @media(max-width: 600px) {
