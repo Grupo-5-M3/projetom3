@@ -39,6 +39,7 @@ interface IChildrenProps {
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext);
 
 export default function AuthProvider({ children }: IChildrenProps) {
+
   const [isLogin, setIsLogin] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
@@ -46,46 +47,11 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
-  const [homeLess, setHomeLess] = useState<IHomelessProps[]>([
-    {
-      img: "../../img/people01.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-    {
-      img: "../../img/people02.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-    {
-      img: "../../img/people01.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-    {
-      img: "../../img/people02.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-  ]);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  useEffect(()=>{
+    const token = localStorage.getItem('@TOKEN')
+    token? setIsLogin(true) : setIsLogin(false)
+  },[])
+  const [homeLess, setHomeLess] = useState<IHomelessProps[]>([]);
 
   function next() {
     api

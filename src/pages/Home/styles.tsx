@@ -104,13 +104,13 @@ export const BtnSupport = styled.button`
   color: #ffffff;
   background: #18167C;
   border-radius: 5px;
-  border: 3px solid #18167C;
+  border: 3px solid #18167c;
   transition:all 0.5s;
 
   :hover{
     transition:all 0.5s;
-    box-shadow: 0 0 6px 1px #f5f5f5;
     background-color: rgba(24, 22, 124,0.5);
+    border: 3px solid transparent;
   }
 
   @media(max-width: 800px) {
@@ -140,19 +140,37 @@ export const BodyCart = styled.ul`
 export const CartCoat = styled.li`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   width: 100%;
   height: 22.3125em;
   background-color: #16C0F0;
   color: #ffffff;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s;
-
-  :hover{
-    background-color: rgba(10,178,230,0.7);
-    transition: all 0.5s;
+  cursor: pointer;
+  transition-property: border-radius,box-shadow,tranform;
+  transition-duration:2s;
+  transition-timing-function: cubic-bezier(cubic-bezier(.15,.89,.85,.26));
+  img{
+    position: relative;
+    left: -220px;
+    transform: translateX(220px);
+    
   }
+  
+:hover{
+  transition: 0.5s;
+  transform: scale(1.07) translateX(20px);
+  border-radius: 10%;
+  transition-duration:0.5s;
+  transition-timing-function: cubic-bezier(cubic-bezier(.15,.89,.85,.26));
 
+  img {    
+    transition: 2s;
+    transform: translateX(220px)
+    op
+  }
+}
   div {
     display: flex;
     width: 12.9375em;
@@ -164,14 +182,6 @@ export const CartCoat = styled.li`
     cursor:pointer;
     transition: all 1.5s;
   }
-
-  :hover{
-    div{
-      transition: all 1.5s;
-      transform: scale(1.5);
-    }
-  }
-
   h2 {
     font-size: 1.25em;
     line-height: 24px;
@@ -209,7 +219,7 @@ export const CartInstitution = styled(CartCoat)`
   background-color: var(--default-purple);
 
   :hover{
-    background-color:rgba(165,0,226,0.8);
+    transform: scale(1.1);
   }
 `
 
@@ -217,7 +227,7 @@ export const CartProjects = styled(CartCoat)`
   background-color: #F09016;
 
   :hover{
-    background-color: rgba(240,145,22,0.8);
+    transform: scale(1.1);
   }
 `
 
@@ -225,6 +235,6 @@ export const CartSearch = styled(CartCoat)`
   background-color: #4BD18E;
 
   :hover{
-    background-color: rgba(75,209,142,0.8);
+    transform: scale(1.1) translateX(-20px);
   }
 `
