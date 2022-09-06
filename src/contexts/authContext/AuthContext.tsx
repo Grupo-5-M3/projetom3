@@ -1,28 +1,17 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
-import HomeLess from "../../pages/HomeLess/HomeLess";
+import { IRegisterPerson } from "../../pages/DashBoard/DashBoard";
 import api from "../../server/api";
-interface IHomelessProps {
-  img: string;
-  name: string;
-  CPF: number;
-  age: number;
-  state: string;
-  lastLocation: string;
-  contact: number;
-}
 
 interface IUserConstext {
   isLogin: boolean;
   isModal: boolean;
-
   isRegister: boolean;
-  setIsRegister: (prevState: boolean) => boolean | void;
-
-  homeLess: IHomelessProps[];
+  homeLess: IRegisterPerson[];
   searchFor: string;
   isNextDisabled: boolean;
   isGoBackDisabled: boolean;
 
+  setIsRegister: (prevState: boolean) => boolean | void;
   setIsLogin: (prevState: boolean) => boolean | void;
   setIsModal: (prevState: boolean) => boolean | void;
   setSearchFor: React.Dispatch<React.SetStateAction<string>>;
@@ -46,44 +35,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
-  const [homeLess, setHomeLess] = useState<IHomelessProps[]>([
-    {
-      img: "../../img/people01.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-    {
-      img: "../../img/people02.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-    {
-      img: "../../img/people01.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-    {
-      img: "../../img/people02.jpg",
-      name: "Carlos",
-      CPF: 123456789,
-      age: 34,
-      state: "Desabrigado",
-      lastLocation: "Estado da contantina, 22",
-      contact: 4845698745,
-    },
-  ]);
+  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
@@ -160,6 +112,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
         isNextDisabled,
         isGoBackDisabled,
         isRegister,
+
         setIsRegister,
         setIsLogin,
         setIsModal,

@@ -9,7 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
 import ResetPage from "../../components/AboutTeam/ResetPage";
 import { toast } from 'react-toastify';
-interface IRegisterPerson {
+export interface IRegisterPerson {
   name: string;
   age: number;
   description: string;
@@ -31,7 +31,7 @@ export default function DashBoard() {
     image: yup.string()
   });
 
-  const {register, handleSubmit, formState: { errors }} = useForm<IRegisterPerson>({
+  const { register, handleSubmit, formState: { errors } } = useForm<IRegisterPerson>({
     resolver: yupResolver(schema)
   });
 
@@ -52,7 +52,7 @@ export default function DashBoard() {
 
   return (
     <>
-      <Header/>
+      <Header />
       <AnimatedPage>
         <Container>
           <section className="text">
