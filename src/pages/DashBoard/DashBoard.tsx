@@ -9,7 +9,18 @@ import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
 import ResetPage from "../../components/AboutTeam/ResetPage";
 import { toast } from 'react-toastify';
+
+interface IDataUserprops {
+  adress: string
+  cpf: number | string
+  email: string
+  id: number
+  name: string
+  phone: number
+}
+
 export interface IRegisterPerson {
+  id: number
   name: string;
   age: number;
   description: string;
@@ -17,6 +28,8 @@ export interface IRegisterPerson {
   volunteer: string;
   image?: string;
   userId: number;
+  user: IDataUserprops
+  date: number
 };
 
 export default function DashBoard() {

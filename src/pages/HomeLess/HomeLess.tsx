@@ -34,6 +34,7 @@ export default function HomeLess() {
     goBack,
   } = useContext(AuthContext);
 
+
   return (
     <ContainerHome>
       <Header />
@@ -64,7 +65,9 @@ export default function HomeLess() {
             </HeaderSearchHomeLess>
             <BodyMissing>
               {homeLess.map((user) => (
-                <CardHomeLess key={user.userId}>
+
+                <CardHomeLess key={user.id}>
+
                   <Link to="#">
                     <figure>
                       <img src={imgTeste} alt="Foto do usuario" />
@@ -89,6 +92,14 @@ export default function HomeLess() {
                           <li>
                             {" "}
                             <span> Voluntário: </span> {user.volunteer}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Contato: </span> {user.user.phone}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Data: </span> {user.date}
                           </li>
                         </ul>
                       </figcaption>

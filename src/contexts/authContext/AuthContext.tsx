@@ -91,7 +91,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
 
   useEffect(() => {
     api
-      .get("database", {
+      .get("database?_expand=user", {
         params: {
           _page: nextPage,
           _limit: 8,
