@@ -130,7 +130,7 @@ export const BodyMissing = styled.ul`
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   background: #F5F5F5;
   border-radius: 6px;
   margin-top: 20px;
@@ -151,6 +151,7 @@ export const CardHomeLess = styled.li`
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 20px;
+  margin-right: 20px;
   
   figure{
     cursor: pointer;
