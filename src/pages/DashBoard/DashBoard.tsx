@@ -5,12 +5,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Header from "../../components/Header/Header";
 import { Container } from "./style";
 import api from '../../server/api';
-import { toast } from 'react-toastify';
 import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
 import ResetPage from "../../components/AboutTeam/ResetPage";
-
-
+import { toast } from 'react-toastify';
 interface IRegisterPerson {
   name: string;
   age: number;
@@ -18,10 +16,11 @@ interface IRegisterPerson {
   location: string;
   volunteer: string;
   image?: string;
-  // userId: string;
+  userId: number;
 };
 
 export default function DashBoard() {
+  const userId = Number(localStorage.getItem('@userId'));
 
   const schema = yup.object().shape({
     name: yup.string().required('Campo obrigatório'),
@@ -37,13 +36,17 @@ export default function DashBoard() {
   });
 
   const onSubmit = (data: IRegisterPerson) => {
+    data.userId = userId;
+
     api.post('/database', data)
       .then((res) => {
-        console.log(res)
+        if (res.status === 201) {
+          toast.success('Cadastro realizado')
+        };
       })
       .catch((err) => {
-        console.log(err);
-        toast.error('Ocorreu um erro, tente novamente')
+        console.error(err);
+        toast.error(`${err.response.data.message}`);
       })
   };
 
@@ -105,7 +108,7 @@ export default function DashBoard() {
                 <p className="error-message">{errors.description?.message}</p>
               </div>
               <div className="input-container">
-                <label htmlFor="">Onde foi registrado</label>
+                <label htmlFor="">Instituição de registro</label>
                 <input
                   type="text"
                   placeholder="Identifique o local de registro"
