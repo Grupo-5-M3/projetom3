@@ -23,7 +23,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const formSchema = yup.object().shape({
-    email: yup.string().required("Email obrigatório"),
+    email: yup.string().email().required("Email obrigatório"),
     password: yup.string().required("Senha obrigatória"),
   });
 

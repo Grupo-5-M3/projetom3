@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 interface IRegisterPerson {
   name: string;
-  cpf: string;
+  cnpj: string;
   adress: string;
   phone: number;
   email: string;
@@ -21,7 +21,16 @@ export default function ModalRegister() {
   const { setIsRegister } = useContext(AuthContext);
 
   const formSchema = yup.object().shape({
-    email: yup.string().required("Email obrigatório"),
+    name: yup.string(),
+    cnpj: yup
+      .string()
+      .matches(
+        /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/,
+        "Formato inválido de cnpj"
+      ),
+    adress: yup.string(),
+    phone: yup.string(),
+    email: yup.string().email().required("Email obrigatório"),
     password: yup.string().required("Senha obrigatória"),
   });
 
@@ -38,7 +47,7 @@ export default function ModalRegister() {
     try {
       const response = await api.post("register", {
         name: data.name,
-        cpf: data.cpf,
+        cnpj: data.cnpj,
         adress: data.adress,
         phone: data.phone,
         email: data.email,
@@ -64,12 +73,12 @@ export default function ModalRegister() {
     <DivBack>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h3>Cadastre-se</h3>
-        <label>Nome</label>
+        <label>Nome da instituição</label>
         <input type="text" placeholder="Digite o nome" {...register("name")} />
 
-        <label>CPF</label>
-        <input type="text" placeholder="Digite o CPF" {...register("cpf")} />
-
+        <label>CNPJ</label>
+        <input type="text" placeholder="Digite o CNPJ" {...register("cnpj")} />
+        {errors.cnpj?.message}
         <label>Endereço</label>
         <input
           type="text"
