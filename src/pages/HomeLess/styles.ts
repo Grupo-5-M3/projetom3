@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
 export const BodyHomeLess = styled.div`
+  margin: 70px 0px 0px 3px;
   padding: 30px 13px 0px 30px;
 
   @media(max-width: 600px) {
-    background-color: #4BD18E;
+    background-color: #F5F5F5;
   }
 `
 
 export const Main = styled.main`
 
   @media(max-width: 600px) {
-    background-color: #4BD18E;
+    /* background-color: #4BD18E; */
   }
 `
 
@@ -19,6 +20,8 @@ export const Main = styled.main`
 export const HeaderSearchHomeLess = styled.header`
   display: flex;
   justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
 
   @media(max-width: 600px) {
     margin: auto;
@@ -46,20 +49,36 @@ export const Search = styled.div`
     }
   }
 
+  input:focus{
+    border:none;
+    outline: none;
+    box-shadow: 0 0 5px 3px var(--gray-50);
+  }
+
   button {
     display: flex;
-    background: #4BD18E;
+    background: var(--gray-50);
     border-radius: 11px;
     border: none;
     height: 42px;
     width: 43px;
     align-items: center;
     justify-content: center;
-
-    @media(max-width: 600px) {
-      background-color: white;
-    }
+    color:white;
   }
+
+  button:hover{
+    background-color: var(--gray-20);
+    color:var(--gray-50);
+    box-shadow: 0 0 5px 2px var(--gray-50);
+    transition: all 1.5s;
+  }
+
+  svg{
+    width: 50%;
+    height: 50%;
+  }
+
 `
 
 export const DirectionsTop = styled.div`
@@ -71,6 +90,12 @@ export const DirectionsTop = styled.div`
   button {
     border: none;
     background-color: white;
+    width: 50px;
+  }
+
+  svg{
+    width: 100%;
+    height: 100%;
   }
 
   @media(max-width: 600px) {
@@ -86,7 +111,13 @@ export const DirectionsBottom = styled.div`
 
   button {
     border: none;
-    background-color: #4BD18E;
+    width: 50px;
+    color:var(--gray-0);
+  }
+
+  svg{
+    width: 100%;
+    height: 100%;
   }
 
   @media(min-width: 600px) {
@@ -95,10 +126,12 @@ export const DirectionsBottom = styled.div`
 `
 
 export const BodyMissing = styled.ul`
+  max-width:1240px;
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background: #4BD18E;
+  background: #F5F5F5;
   border-radius: 6px;
   margin-top: 20px;
   padding-bottom: 20px;
@@ -118,6 +151,21 @@ export const CardHomeLess = styled.li`
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 20px;
+  
+  figure{
+    cursor: pointer;
+  }
+
+  figure:hover{
+    box-shadow: 0 0 5px 4px var(--gray-50);
+    border-radius: 11px;
+    transition: all 0.5s
+  }
+
+  a{
+    text-decoration: none;
+    color:var(--gray-100);
+  }
 
   img {
     width: 17.0625em;
@@ -131,9 +179,15 @@ export const CardHomeLess = styled.li`
     height: 12.3125em;
     flex-direction: column;
     justify-content: space-around;
+    cursor: pointer;
 
     span {
       font-weight: 900;
+      cursor:pointer;
+    }
+
+    ul li{
+      cursor: pointer;
     }
 
     ul {
