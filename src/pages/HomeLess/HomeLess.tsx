@@ -28,13 +28,13 @@ export default function HomeLess() {
     homeLess,
     isNextDisabled,
     isGoBackDisabled,
-    teste,
+    search,
     setSearchFor,
     next,
     goBack,
   } = useContext(AuthContext);
 
-  console.log(homeLess);
+
   return (
     <ContainerHome>
       <Header />
@@ -48,7 +48,7 @@ export default function HomeLess() {
                   placeholder="Digite sua pesquisa aqui"
                   onChange={(event) => setSearchFor(event.target.value)}
                 />
-                <button onClick={() => teste()}>
+                <button onClick={() => search()}>
                   <BsSearch />
                 </button>
               </Search>
@@ -63,10 +63,11 @@ export default function HomeLess() {
                 </button>
               </DirectionsTop>
             </HeaderSearchHomeLess>
-
             <BodyMissing>
-              {homeLess.map((user, index) => (
-                <CardHomeLess key={index}>
+              {homeLess.map((user) => (
+
+                <CardHomeLess key={user.id}>
+
                   <Link to="#">
                     <figure>
                       <img src={imgTeste} alt="Foto do usuario" />
@@ -78,23 +79,27 @@ export default function HomeLess() {
                           </li>
                           <li>
                             {" "}
-                            <span> CPF: </span> {user.CPF}
-                          </li>
-                          <li>
-                            {" "}
                             <span> Idade: </span> {user.age}
                           </li>
                           <li>
                             {" "}
-                            <span> Estado: </span> {user.state}
+                            <span> Descrição física: </span> {user.description}
                           </li>
                           <li>
                             {" "}
-                            <span> Último local: </span> {user.lastLocation}
+                            <span> Local de registro: </span> {user.location}
                           </li>
                           <li>
                             {" "}
-                            <span> Contato: </span> {user.contact}
+                            <span> Voluntário: </span> {user.volunteer}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Contato: </span> {user.user.phone}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Data: </span> {user.date}
                           </li>
                         </ul>
                       </figcaption>
