@@ -57,6 +57,7 @@ export default function ModalRegister() {
         if (res.status === 201) {
           const { user } = res.data;
           toast.success("Registro realizado com sucesso", {
+            autoClose: 1500,
             toastId: customId,
           });
           setTimeout(() => setIsRegister(false), 2500);
@@ -122,7 +123,7 @@ export default function ModalRegister() {
           </p>
         </div>
       </form>
-      <ToastContainer autoClose={1500} />
+      <ToastContainer />
     </DivBack>
   );
 }

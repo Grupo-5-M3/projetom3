@@ -49,6 +49,7 @@ export default function Login() {
           localStorage.setItem("@TOKEN", accessToken);
           localStorage.setItem("@userId", user.id);
           toast.success("Login realizado com sucesso", {
+            autoClose: 1500,
             toastId: customId,
           });
           setTimeout(() => {
@@ -100,7 +101,7 @@ export default function Login() {
                   </p>
                 </div>
               </form>
-              <ToastContainer autoClose={1500} />
+              <ToastContainer />
             </DivBack>
             <Footer color={"rgba(10,178,230,1)"} />
           </>

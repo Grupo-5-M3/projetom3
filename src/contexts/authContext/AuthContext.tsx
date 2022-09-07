@@ -108,6 +108,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
   function logout(e: any) {
     e.preventDefault();
     toast.success("Logout realizado com sucesso!", {
+      autoClose: 1500,
       toastId: customId,
     });
     setTimeout(() => {

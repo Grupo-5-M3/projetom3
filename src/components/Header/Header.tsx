@@ -61,7 +61,7 @@ export default function Header() {
           <AiOutlineMenu />
         </button>
       </DivMenu>
-      <ToastContainer autoClose={1500} />
+      <ToastContainer />
       <ResetPage />
     </HeaderDiv>
   );
