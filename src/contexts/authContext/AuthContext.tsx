@@ -50,6 +50,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
 
   const navigate = useNavigate();
+  const customId = "custom-id-yes";
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
@@ -106,7 +107,10 @@ export default function AuthProvider({ children }: IChildrenProps) {
 
   function logout(e: any) {
     e.preventDefault();
-    toast.success("Logout realizado com sucesso!");
+
+    toast.success("Logout realizado com sucesso!", {
+      toastId: customId,
+    });
     setTimeout(() => {
       setIsLogin(false);
       localStorage.clear();

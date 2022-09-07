@@ -19,6 +19,7 @@ interface IRegisterPerson {
 
 export default function ModalRegister() {
   const { setIsRegister } = useContext(AuthContext);
+  const customId = "custom-id-yes";
 
   const formSchema = yup.object().shape({
     name: yup.string(),
@@ -59,7 +60,9 @@ export default function ModalRegister() {
       console.log(user);
 
       response.status === 201 &&
-        toast.success("Registro realizado com sucesso");
+        toast.success("Registro realizado com sucesso", {
+          toastId: customId,
+        });
       setTimeout(() => setIsRegister(false), 2500);
 
       // navigate("dashboard", { replace: true });

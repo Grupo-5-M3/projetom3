@@ -21,6 +21,7 @@ export default function Login() {
   const { isLogin, setIsLogin, isRegister, setIsRegister } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const customId = "custom-id-yes";
 
   const formSchema = yup.object().shape({
     email: yup.string().email().required("Email obrigatório"),
@@ -51,7 +52,10 @@ export default function Login() {
       console.log(user);
       console.log(accessToken);
 
-      response.status === 200 && toast.success("Login realizado com sucesso");
+      response.status === 200 &&
+        toast.success("Login realizado com sucesso", {
+          toastId: customId,
+        });
       setTimeout(() => {
         setIsLogin(true);
         navigate("/pesquisadesaparecidos", { replace: true });
