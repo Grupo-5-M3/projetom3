@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-
   margin-top: 141px;
   background-color: #fff;
   width: 100%;

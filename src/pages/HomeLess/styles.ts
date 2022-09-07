@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BodyHomeLess = styled.div`
-  margin: 70px 0px 0px 3px;
+  margin: 70px 0px 0px 0px;
   padding: 30px 13px 0px 30px;
 
   @media(max-width: 600px) {

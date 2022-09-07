@@ -5,7 +5,6 @@ import DashBoard from "../pages/DashBoard/DashBoard";
 import Home from "../pages/Home/Home";
 import HomeLess from "../pages/HomeLess/HomeLess";
 import Login from "../pages/Login";
-import RegisterUser from "../pages/RegisterUser";
 import { AnimatePresence } from "framer-motion";
 import PrivateRoutes from "../components/PrivateRoutes/PrivateRoutes";
 
