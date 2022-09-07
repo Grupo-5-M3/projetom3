@@ -16,14 +16,17 @@ import {
 } from "./styles";
 import Header from "../../components/Header/Header";
 
+import imgSearch from "../../img/search.png";
+import imgComeBack from "../../img/ComeBack.png";
+import imgProceed from "../../img/Proceed.png";
 import imgTeste from "../../img/people01.jpg";
+import api from "../../server/api";
 import Footer from "../../components/Footer/Footer";
 import ResetPage from "../../components/AboutTeam/ResetPage";
 import AnimatedPage from "../../components/AnimatedPage";
 import { Link } from "react-router-dom";
 
 export default function HomeLess() {
-
   const {
     homeLess,
     isNextDisabled,
@@ -33,7 +36,6 @@ export default function HomeLess() {
     next,
     goBack,
   } = useContext(AuthContext);
-
 
   return (
     <ContainerHome>
@@ -48,6 +50,7 @@ export default function HomeLess() {
                   placeholder="Digite sua pesquisa aqui"
                   onChange={(event) => setSearchFor(event.target.value)}
                 />
+
                 <button onClick={() => search()}>
                   <BsSearch />
                 </button>
@@ -55,19 +58,19 @@ export default function HomeLess() {
 
               <DirectionsTop>
                 <button disabled={isGoBackDisabled} onClick={() => goBack()}>
+                  {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
                   <GrPrevious />
                 </button>
 
                 <button disabled={isNextDisabled} onClick={() => next()}>
+                  {/* <img src={imgProceed} alt="Adiantar lista de usuarios" /> */}
                   <GrNext />
                 </button>
               </DirectionsTop>
             </HeaderSearchHomeLess>
             <BodyMissing>
               {homeLess.map((user) => (
-
                 <CardHomeLess key={user.id}>
-
                   <Link to="#">
                     <figure>
                       <img src={imgTeste} alt="Foto do usuario" />
@@ -110,13 +113,13 @@ export default function HomeLess() {
             </BodyMissing>
 
             <DirectionsBottom>
-              <button
-                disabled={isGoBackDisabled}
-                onClick={() => goBack()}>
+              <button disabled={isGoBackDisabled} onClick={() => goBack()}>
+                {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
                 <GrPrevious />
               </button>
 
               <button disabled={isNextDisabled} onClick={() => next()}>
+                {/* <img src={imgProceed} alt="Adiantar lista de usuarios" /> */}
                 <GrNext />
               </button>
             </DirectionsBottom>

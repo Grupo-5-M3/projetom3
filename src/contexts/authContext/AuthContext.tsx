@@ -1,6 +1,18 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
 import { IRegisterPerson } from "../../pages/DashBoard/DashBoard";
 import api from "../../server/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
+interface IHomelessProps {
+  img: string;
+  name: string;
+  CPF: number;
+  age: number;
+  state: string;
+  lastLocation: string;
+  contact: number;
+}
 
 interface IUserConstext {
   isLogin: boolean;
@@ -17,8 +29,9 @@ interface IUserConstext {
   setSearchFor: React.Dispatch<React.SetStateAction<string>>;
   next(): void;
   goBack(): void;
+
   search(): void;
-  logout(): void;
+  logout(e: any): void;
 }
 
 interface IChildrenProps {
@@ -28,7 +41,6 @@ interface IChildrenProps {
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext);
 
 export default function AuthProvider({ children }: IChildrenProps) {
-
   const [isLogin, setIsLogin] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
@@ -36,12 +48,16 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
-  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
+
+  const navigate = useNavigate();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
   useEffect(() => {
-    const token = localStorage.getItem('@TOKEN')
-    token ? setIsLogin(true) : setIsLogin(false)
-  }, [])
+    const token = localStorage.getItem("@TOKEN");
+    token ? setIsLogin(true) : setIsLogin(false);
+  }, []);
+  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
 
   function next() {
     api
@@ -88,9 +104,14 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then((res) => setHomeLess(res.data));
   }
 
-  function logout() {
-    setIsLogin(false);
-    localStorage.clear();
+  function logout(e: any) {
+    e.preventDefault();
+    toast.success("Logout realizado com sucesso!");
+    setTimeout(() => {
+      setIsLogin(false);
+      localStorage.clear();
+      navigate("/home", { replace: true });
+    }, 2000);
   }
 
   useEffect(() => {
