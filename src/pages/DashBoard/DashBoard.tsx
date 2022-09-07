@@ -9,7 +9,18 @@ import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
 import ResetPage from "../../components/AboutTeam/ResetPage";
 import { toast } from 'react-toastify';
-interface IRegisterPerson {
+
+interface IDataUserprops {
+  adress: string
+  cpf: number | string
+  email: string
+  id: number
+  name: string
+  phone: number
+}
+
+export interface IRegisterPerson {
+  id: number
   name: string;
   age: number;
   description: string;
@@ -19,6 +30,7 @@ interface IRegisterPerson {
   image?: string;
   contact: string;
   userId: number;
+  user: IDataUserprops
 };
 
 export default function DashBoard() {
@@ -35,7 +47,7 @@ export default function DashBoard() {
     contact: yup.string().email().required('Campo obrigatório')
   });
 
-  const {register, handleSubmit, formState: { errors }} = useForm<IRegisterPerson>({
+  const { register, handleSubmit, formState: { errors } } = useForm<IRegisterPerson>({
     resolver: yupResolver(schema)
   });
 
@@ -56,7 +68,7 @@ export default function DashBoard() {
 
   return (
     <>
-      <Header/>
+      <Header />
       <AnimatedPage>
         <Container>
           <section className="text">

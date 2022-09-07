@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
-import HomeLess from "../../pages/HomeLess/HomeLess";
+import { IRegisterPerson } from "../../pages/DashBoard/DashBoard";
 import api from "../../server/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -17,21 +17,20 @@ interface IHomelessProps {
 interface IUserConstext {
   isLogin: boolean;
   isModal: boolean;
-
   isRegister: boolean;
-  setIsRegister: (prevState: boolean) => boolean | void;
-
-  homeLess: IHomelessProps[];
+  homeLess: IRegisterPerson[];
   searchFor: string;
   isNextDisabled: boolean;
   isGoBackDisabled: boolean;
 
+  setIsRegister: (prevState: boolean) => boolean | void;
   setIsLogin: (prevState: boolean) => boolean | void;
   setIsModal: (prevState: boolean) => boolean | void;
   setSearchFor: React.Dispatch<React.SetStateAction<string>>;
   next(): void;
   goBack(): void;
-  teste(): void;
+
+  search(): void;
   logout(e: any): void;
 }
 
@@ -58,7 +57,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
     const token = localStorage.getItem("@TOKEN");
     token ? setIsLogin(true) : setIsLogin(false);
   }, []);
-  const [homeLess, setHomeLess] = useState<IHomelessProps[]>([]);
+  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
 
   function next() {
     api
@@ -99,26 +98,25 @@ export default function AuthProvider({ children }: IChildrenProps) {
     setNextPage(nextPage - 1);
   }
 
-  function teste() {
+  function search() {
     api
       .get(`database/?name_like=${searchFor}`)
       .then((res) => setHomeLess(res.data));
   }
 
-  function logout(this: any, e: any) {
+  function logout(e: any) {
     e.preventDefault();
     toast.success("Logout realizado com sucesso!");
-    console.dir(this);
     setTimeout(() => {
       setIsLogin(false);
       localStorage.clear();
       navigate("/home", { replace: true });
-    }, 3000);
+    }, 2000);
   }
 
   useEffect(() => {
     api
-      .get("database", {
+      .get("database?_expand=user", {
         params: {
           _page: nextPage,
           _limit: 8,
@@ -139,13 +137,14 @@ export default function AuthProvider({ children }: IChildrenProps) {
         isNextDisabled,
         isGoBackDisabled,
         isRegister,
+
         setIsRegister,
         setIsLogin,
         setIsModal,
         setSearchFor,
         goBack,
         next,
-        teste,
+        search,
         logout,
       }}
     >
