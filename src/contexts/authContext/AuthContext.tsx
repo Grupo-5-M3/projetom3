@@ -17,7 +17,7 @@ interface IUserConstext {
   setSearchFor: React.Dispatch<React.SetStateAction<string>>;
   next(): void;
   goBack(): void;
-  teste(): void;
+  search(): void;
   logout(): void;
 }
 
@@ -82,7 +82,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
     setNextPage(nextPage - 1);
   }
 
-  function teste() {
+  function search() {
     api
       .get(`database/?name_like=${searchFor}`)
       .then((res) => setHomeLess(res.data));
@@ -123,7 +123,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
         setSearchFor,
         goBack,
         next,
-        teste,
+        search,
         logout,
       }}
     >

@@ -28,7 +28,7 @@ export default function HomeLess() {
     homeLess,
     isNextDisabled,
     isGoBackDisabled,
-    teste,
+    search,
     setSearchFor,
     next,
     goBack,
@@ -48,7 +48,7 @@ export default function HomeLess() {
                   placeholder="Digite sua pesquisa aqui"
                   onChange={(event) => setSearchFor(event.target.value)}
                 />
-                <button onClick={() => teste()}>
+                <button onClick={() => search()}>
                   <BsSearch />
                 </button>
               </Search>

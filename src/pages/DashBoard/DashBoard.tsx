@@ -31,7 +31,6 @@ export interface IRegisterPerson {
   contact: string;
   userId: number;
   user: IDataUserprops
-  date: number
 };
 
 export default function DashBoard() {
