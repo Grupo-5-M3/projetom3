@@ -38,6 +38,8 @@ interface IChildrenProps {
   children: ReactNode;
 }
 
+const customId = "custom-id-yes";
+
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext);
 
 export default function AuthProvider({ children }: IChildrenProps) {
@@ -48,9 +50,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
-
   const navigate = useNavigate();
-  const customId = "custom-id-yes";
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
@@ -107,7 +107,6 @@ export default function AuthProvider({ children }: IChildrenProps) {
 
   function logout(e: any) {
     e.preventDefault();
-
     toast.success("Logout realizado com sucesso!", {
       toastId: customId,
     });
