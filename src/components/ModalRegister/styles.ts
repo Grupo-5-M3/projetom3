@@ -49,7 +49,7 @@ export const DivBack = styled.div`
 
     label {
       color: #828282;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     input {
@@ -63,7 +63,7 @@ export const DivBack = styled.div`
     }
 
     input::placeholder {
-      font-size: 10px;
+      font-size: 12px;
       color: rgba(130, 130, 130, 0.75);
     }
 

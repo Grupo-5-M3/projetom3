@@ -72,11 +72,21 @@ export const DivBack = styled.div`
       text-decoration: none;
     }
 
-    button {
-      border-style: none;
-      background-color: transparent;
-      text-decoration: underline;
-      margin-bottom: 30px;
+    div {
+      p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        button {
+          border-style: none;
+          background-color: transparent;
+          text-decoration: underline;
+          margin-bottom: 30px;
+        }
+      }
     }
   }
   @media screen and (max-width: 768px) {

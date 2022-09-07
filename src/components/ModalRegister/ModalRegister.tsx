@@ -2,12 +2,11 @@ import { DivBack } from "./styles";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import api from "../../server/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 interface IRegisterPerson {
   name: string;
   cnpj: string;
