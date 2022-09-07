@@ -25,8 +25,10 @@ export interface IRegisterPerson {
   age: number;
   description: string;
   location: string;
+  date: string;
   volunteer: string;
   image?: string;
+  contact: string;
   userId: number;
   user: IDataUserprops
   date: number
@@ -40,8 +42,10 @@ export default function DashBoard() {
     age: yup.string().required('Campo obrigatório'),
     description: yup.string().required('Campo obrigatório').max(70),
     location: yup.string().required('Campo obrigatório'),
+    date: yup.string().required('Campo obrigatório'),
     volunteer: yup.string().required('Campo obrigatório'),
-    image: yup.string()
+    image: yup.string(),
+    contact: yup.string().email().required('Campo obrigatório')
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm<IRegisterPerson>({
@@ -59,7 +63,7 @@ export default function DashBoard() {
       })
       .catch((err) => {
         console.error(err);
-        toast.error(`${err.response.data.message}`);
+        toast.error(`Ocorreu um erro. Tente novamente.`);
       })
   };
 
@@ -130,6 +134,15 @@ export default function DashBoard() {
                 <p className="error-message">{errors.location?.message}</p>
               </div>
               <div className="input-container">
+                <label htmlFor="">Data de registro</label>
+                <input
+                  type="date"
+                  {...register("date")}
+                />
+                <p className="error-message">{errors.date?.message}</p>
+              </div>
+
+              <div className="input-container">
                 <label htmlFor="">Voluntário</label>
                 <input
                   type="text"
@@ -145,6 +158,15 @@ export default function DashBoard() {
                   placeholder="Link para a imagem"
                   {...register("image")}
                 />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">Contato da instituição</label>
+                <input
+                  type="email"
+                  placeholder="Email da instituição"
+                  {...register("contact")}
+                />
+                <p className="error-message">{errors.contact?.message}</p>
               </div>
 
               <button>Cadastrar</button>
