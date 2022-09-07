@@ -77,7 +77,11 @@ export default function ModalRegister() {
         <input type="text" placeholder="Digite o nome" {...register("name")} />
 
         <label>CNPJ</label>
-        <input type="text" placeholder="Digite o CNPJ" {...register("cnpj")} />
+        <input
+          type="text"
+          placeholder="Digite o CNPJ Ex: 00.000.000/0000-00"
+          {...register("cnpj")}
+        />
         {errors.cnpj?.message}
         <label>Endereço</label>
         <input

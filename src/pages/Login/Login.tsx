@@ -78,6 +78,7 @@ export default function Login() {
                   type="email"
                   id="email"
                   placeholder="Digite seu email"
+                  required
                   {...register("email")}
                 />
                 <label>Senha</label>

@@ -40,6 +40,18 @@ export default function ClothingCampaign() {
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.464130074948!2d-46.77257827399548!3d-23.659354535487125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce53b8412d5577%3A0x674118f6e41e68d1!2sCap%C3%A3o%20Redondo!5e0!3m2!1spt-BR!2sbr!4v1661994188029!5m2!1spt-BR!2sbr",
       fone: null,
     },
+    {
+      nome: "Paróquia São Miguel Arcanjo",
+      endereco:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.572579717477!2d-46.59611068453366!3d-23.54787068468961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59334f40fb33%3A0xcb94a8a68f846364!2sPar%C3%B3quia%20S%C3%A3o%20Miguel%20Arcanjo!5e0!3m2!1spt-PT!2sbr!4v1662468656818!5m2!1spt-PT!2sbr",
+      fone: 1126926798,
+    },
+    {
+      nome: "Casa de Oração do Povo de Deus",
+      endereco:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.7722889706033!2d-46.39370388453272!3d-23.612498184657543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6fa03ccf6357%3A0x2198d1efba439c48!2sCasa%20de%20Ora%C3%A7%C3%A3o%20do%20Povo%20de%20Deus!5e0!3m2!1spt-PT!2sbr!4v1662468827570!5m2!1spt-PT!2sbr",
+      fone: 1126926798,
+    },
   ];
 
   return (

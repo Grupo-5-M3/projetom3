@@ -27,7 +27,6 @@ import AnimatedPage from "../../components/AnimatedPage";
 import { Link } from "react-router-dom";
 
 export default function HomeLess() {
-
   const {
     homeLess,
     isNextDisabled,
@@ -54,74 +53,72 @@ export default function HomeLess() {
                 />
                 <button onClick={() => teste()}>
                   {/* <img src={imgSearch} alt="Lupa de busca" /> */}
-                  <BsSearch/>
+                  <BsSearch />
                 </button>
               </Search>
 
               <DirectionsTop>
                 <button disabled={isGoBackDisabled} onClick={() => goBack()}>
                   {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
-                  <GrPrevious/>
+                  <GrPrevious />
                 </button>
 
                 <button disabled={isNextDisabled} onClick={() => next()}>
                   {/* <img src={imgProceed} alt="Adiantar lista de usuarios" /> */}
-                  <GrNext/>
+                  <GrNext />
                 </button>
               </DirectionsTop>
             </HeaderSearchHomeLess>
 
-          <BodyMissing>
-            {homeLess.map((user, index) => (
-              <CardHomeLess key={index}>
-                <Link to="#">
-                <figure>
-                  <img src={imgTeste} alt="Foto do usuario" />
-                  <figcaption>
-                    <ul>
-                      <li>
-                        {" "}
-                        <span> Nome: </span> {user.name}
-                      </li>
-                      <li>
-                        {" "}
-                        <span> CPF: </span> {user.CPF}
-                      </li>
-                      <li>
-                        {" "}
-                        <span> Idade: </span> {user.age}
-                      </li>
-                      <li>
-                        {" "}
-                        <span> Estado: </span> {user.state}
-                      </li>
-                      <li>
-                        {" "}
-                        <span> Último local: </span> {user.lastLocation}
-                      </li>
-                      <li>
-                        {" "}
-                        <span> Contato: </span> {user.contact}
-                      </li>
-                    </ul>
-                  </figcaption>
-                </figure>
-                </Link>
-              </CardHomeLess>
-            ))}
-          </BodyMissing>
+            <BodyMissing>
+              {homeLess.map((user, index) => (
+                <CardHomeLess key={index}>
+                  <Link to="#">
+                    <figure>
+                      <img src={imgTeste} alt="Foto do usuario" />
+                      <figcaption>
+                        <ul>
+                          <li>
+                            {" "}
+                            <span> Nome: </span> {user.name}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> CPF: </span> {user.CPF}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Idade: </span> {user.age}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Estado: </span> {user.state}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Último local: </span> {user.lastLocation}
+                          </li>
+                          <li>
+                            {" "}
+                            <span> Contato: </span> {user.contact}
+                          </li>
+                        </ul>
+                      </figcaption>
+                    </figure>
+                  </Link>
+                </CardHomeLess>
+              ))}
+            </BodyMissing>
 
-          <DirectionsBottom>
-            <button
-              disabled={isGoBackDisabled}
-              onClick={() => goBack()}>
-              {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
-              <GrPrevious/>
-            </button>
+            <DirectionsBottom>
+              <button disabled={isGoBackDisabled} onClick={() => goBack()}>
+                {/* <img src={imgComeBack} alt="Voltar lista de usuarios" /> */}
+                <GrPrevious />
+              </button>
 
               <button disabled={isNextDisabled} onClick={() => next()}>
                 {/* <img src={imgProceed} alt="Adiantar lista de usuarios" /> */}
-                <GrNext/>
+                <GrNext />
               </button>
             </DirectionsBottom>
           </BodyHomeLess>

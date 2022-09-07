@@ -53,6 +53,11 @@ export const Container = styled.div`
         flex-direction: column;
   
         width: 13.5rem;
+
+        .error-message {
+          font-size: 12px;
+          color: #F81A1A;
+        }
       }
   
       .input-container:first-child {
@@ -95,6 +100,8 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1024px) {
+    margin: 0;
+
     .text {
       display: flex;
       flex-direction: column;

@@ -4,37 +4,59 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Header from "../../components/Header/Header";
 import { Container } from "./style";
+import api from '../../server/api';
 import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
 import ResetPage from "../../components/AboutTeam/ResetPage";
-
+import { toast } from 'react-toastify';
 interface IRegisterPerson {
   name: string;
   age: number;
   description: string;
   location: string;
+  date: string;
   volunteer: string;
-  image: string;
-}
+  image?: string;
+  contact: string;
+  userId: number;
+};
 
 export default function DashBoard() {
-  const schema = yup.object().shape({});
+  const userId = Number(localStorage.getItem('@userId'));
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IRegisterPerson>({
-    resolver: yupResolver(schema),
+  const schema = yup.object().shape({
+    name: yup.string().required('Campo obrigatório'),
+    age: yup.string().required('Campo obrigatório'),
+    description: yup.string().required('Campo obrigatório').max(70),
+    location: yup.string().required('Campo obrigatório'),
+    date: yup.string().required('Campo obrigatório'),
+    volunteer: yup.string().required('Campo obrigatório'),
+    image: yup.string(),
+    contact: yup.string().email().required('Campo obrigatório')
+  });
+
+  const {register, handleSubmit, formState: { errors }} = useForm<IRegisterPerson>({
+    resolver: yupResolver(schema)
   });
 
   const onSubmit = (data: IRegisterPerson) => {
-    console.log(data);
+    data.userId = userId;
+
+    api.post('/database', data)
+      .then((res) => {
+        if (res.status === 201) {
+          toast.success('Cadastro realizado')
+        };
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error(`Ocorreu um erro. Tente novamente.`);
+      })
   };
 
   return (
     <>
-      <Header />
+      <Header/>
       <AnimatedPage>
         <Container>
           <section className="text">
@@ -69,6 +91,7 @@ export default function DashBoard() {
                   placeholder="Digite o nome"
                   {...register("name")}
                 />
+                <p className="error-message">{errors.name?.message}</p>
               </div>
               <div className="input-container">
                 <label htmlFor="">Idade</label>
@@ -77,6 +100,7 @@ export default function DashBoard() {
                   placeholder="Digite a idade"
                   {...register("age")}
                 />
+                <p className="error-message">{errors.age?.message}</p>
               </div>
               <div className="input-container">
                 <label htmlFor="">Descrição física</label>
@@ -85,15 +109,26 @@ export default function DashBoard() {
                   placeholder="Descreva a aparência"
                   {...register("description")}
                 />
+                <p className="error-message">{errors.description?.message}</p>
               </div>
               <div className="input-container">
-                <label htmlFor="">Onde foi registrado</label>
+                <label htmlFor="">Instituição de registro</label>
                 <input
                   type="text"
                   placeholder="Identifique o local de registro"
                   {...register("location")}
                 />
+                <p className="error-message">{errors.location?.message}</p>
               </div>
+              <div className="input-container">
+                <label htmlFor="">Data de registro</label>
+                <input
+                  type="date"
+                  {...register("date")}
+                />
+                <p className="error-message">{errors.date?.message}</p>
+              </div>
+
               <div className="input-container">
                 <label htmlFor="">Voluntário</label>
                 <input
@@ -101,6 +136,7 @@ export default function DashBoard() {
                   placeholder="Nome do voluntário registrando"
                   {...register("volunteer")}
                 />
+                <p className="error-message">{errors.volunteer?.message}</p>
               </div>
               <div className="input-container">
                 <label htmlFor="">Imagem</label>
@@ -109,6 +145,15 @@ export default function DashBoard() {
                   placeholder="Link para a imagem"
                   {...register("image")}
                 />
+              </div>
+              <div className="input-container">
+                <label htmlFor="">Contato da instituição</label>
+                <input
+                  type="email"
+                  placeholder="Email da instituição"
+                  {...register("contact")}
+                />
+                <p className="error-message">{errors.contact?.message}</p>
               </div>
 
               <button>Cadastrar</button>
@@ -119,5 +164,5 @@ export default function DashBoard() {
         <ResetPage />
       </AnimatedPage>
     </>
-  );
+  )
 }
