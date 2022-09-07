@@ -19,6 +19,7 @@ interface IRegisterPerson {
 
 export default function ModalRegister() {
   const { setIsRegister } = useContext(AuthContext);
+  const customId = "custom-id-yes";
 
   const formSchema = yup.object().shape({
     name: yup.string(),
@@ -42,31 +43,30 @@ export default function ModalRegister() {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmitFunction = async (data: IRegisterPerson) => {
-    console.log(data);
-    try {
-      const response = await api.post("register", {
+  const onSubmitFunction = (data: IRegisterPerson) => {
+    api
+      .post("register", {
         name: data.name,
         cnpj: data.cnpj,
         adress: data.adress,
         phone: data.phone,
         email: data.email,
         password: data.password,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          const { user } = res.data;
+          toast.success("Registro realizado com sucesso", {
+            autoClose: 1500,
+            toastId: customId,
+          });
+          setTimeout(() => setIsRegister(false), 2500);
+        }
+      })
+      .catch((error: any) => {
+        toast.error(`Error: ${error.response.data}`);
+        console.log(error.response.data);
       });
-      const { user } = response.data;
-
-      console.log(response);
-      console.log(user);
-
-      response.status === 201 &&
-        toast.success("Registro realizado com sucesso");
-      setTimeout(() => setIsRegister(false), 2500);
-
-      // navigate("dashboard", { replace: true });
-    } catch (error: any) {
-      toast.error(`Error: ${error.response.data}`);
-      console.log(error.response.data);
-    }
   };
 
   return (
@@ -123,7 +123,7 @@ export default function ModalRegister() {
           </p>
         </div>
       </form>
-      <ToastContainer autoClose={1500} />
+      <ToastContainer />
     </DivBack>
   );
 }

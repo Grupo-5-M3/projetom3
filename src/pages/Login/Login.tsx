@@ -21,6 +21,7 @@ export default function Login() {
   const { isLogin, setIsLogin, isRegister, setIsRegister } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const customId = "custom-id-yes";
 
   const formSchema = yup.object().shape({
     email: yup.string().email().required("Email obrigatório"),
@@ -35,33 +36,32 @@ export default function Login() {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmitFunction = async (data: ILoginPerson) => {
-    console.log(data);
-    try {
-      const response = await api.post("login", {
+  const onSubmitFunction = (data: ILoginPerson) => {
+    api
+      .post("login", {
         email: data.email,
         password: data.password,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          const { user, accessToken } = res.data;
+          api.defaults.headers.common.authorization = `Bearer ${accessToken}`;
+          localStorage.setItem("@TOKEN", accessToken);
+          localStorage.setItem("@userId", user.id);
+          toast.success("Login realizado com sucesso", {
+            autoClose: 1500,
+            toastId: customId,
+          });
+          setTimeout(() => {
+            setIsLogin(true);
+            navigate("/pesquisadesaparecidos", { replace: true });
+          }, 2500);
+        }
+      })
+      .catch((error: any) => {
+        toast.error(`Error: ${error.response.data}`);
+        console.error(error);
       });
-      const { user, accessToken } = response.data;
-      api.defaults.headers.common.authorization = `Bearer ${accessToken}`;
-      localStorage.setItem("@TOKEN", accessToken);
-      localStorage.setItem("@userId", user.id);
-
-      console.log(response);
-      console.log(user);
-      console.log(accessToken);
-
-      response.status === 200 && toast.success("Login realizado com sucesso");
-      setTimeout(() => {
-        setIsLogin(true);
-        navigate("/pesquisadesaparecidos", { replace: true });
-      }, 2500);
-
-      // navigate("dashboard", { replace: true });
-    } catch (error: any) {
-      toast.error(`Error: ${error.response.data}`);
-      console.error(error);
-    }
   };
 
   return (
@@ -101,7 +101,7 @@ export default function Login() {
                   </p>
                 </div>
               </form>
-              <ToastContainer autoClose={1500} />
+              <ToastContainer />
             </DivBack>
             <Footer color={"rgba(10,178,230,1)"} />
           </>
