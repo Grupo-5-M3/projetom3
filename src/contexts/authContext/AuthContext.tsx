@@ -18,7 +18,7 @@ interface IUser {
   name: string;
   cnpj: string;
   adress: string;
-  phone: string;
+  contact: string;
   email: string;
   password: string;
 }
@@ -141,7 +141,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then((res) => {
         setHomeLess(res.data);
       });
-  }, [searchFor, nextPage]);
+  }, [nextPage]);
 
   useEffect(() => {
     const userId = localStorage.getItem("@userId");

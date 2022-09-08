@@ -37,6 +37,8 @@ export default function HomeLess() {
     goBack,
   } = useContext(AuthContext);
 
+  console.log(homeLess);
+
   return (
     <ContainerHome>
       <Header />
@@ -98,7 +100,7 @@ export default function HomeLess() {
                           </li>
                           <li>
                             {" "}
-                            <span> Contato: </span> {user.user.phone}
+                            <span> Contato: </span> {user.contact}
                           </li>
                           <li>
                             {" "}
