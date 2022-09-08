@@ -4,7 +4,9 @@ export default createGlobalStyle`
 :root {
 	
   --default-blue: rgba(10, 178, 230,1);
+	--default-blue-clear: rgba(10, 178, 230,0.8);
 	--default-purple:rgba(165, 0, 226, 1);
+	--default-purple-clear:rgba(165, 0, 226, 0.2);
 	--default-orange:rgba(240, 145, 22, 1);
 	--default-green:rgba(75, 209, 142,1);
 
@@ -54,6 +56,18 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+
+}
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #86929B;
+  border-radius: 3px;
+  border: 3px solid #86929B;
 }
 
 ol, ul {

@@ -6,10 +6,22 @@
   cursor: default;
   font-family: 'Inter', sans-serif;;
 }
+
+html,body,#root{
+  width: 100%;
+  height: 100%;
+}
+
 button,a,link,img,svg{
   cursor: pointer;
 }
 input{
   cursor: text;
+}
+
+@media(max-width: 800px){
+  html,body,#root{
+    overflow-x: hidden;
+  }
 }
 
