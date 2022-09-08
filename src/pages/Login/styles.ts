@@ -86,3 +86,23 @@ export const DivBack = styled.div`
     }
   }
 `;
+
+export const DivBackEdit = styled(DivBack)`
+  background-image: none;
+  margin-top: 0px;
+  position: fixed;
+  background-color: rgba(0,0,0,0.4);
+
+  form {
+    h3 {
+      background-color: #435664;
+      padding: 0px 10px 0px 10px;
+      justify-content: space-between;
+
+      button {
+        color: white;
+        margin-bottom: 0px;
+      }
+    }
+  }
+`
