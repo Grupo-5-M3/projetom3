@@ -14,6 +14,15 @@ interface IHomelessProps {
   contact: number;
 }
 
+interface IUser {
+  name: string;
+  cnpj: string;
+  adress: string;
+  phone: string;
+  email: string;
+  password: string;
+}
+
 interface IUserConstext {
   isLogin: boolean;
   isModal: boolean;
@@ -26,6 +35,7 @@ interface IUserConstext {
   setIsRegister: (prevState: boolean) => boolean | void;
   setIsLogin: (prevState: boolean) => boolean | void;
   setIsModal: (prevState: boolean) => boolean | void;
+  user: IUser | any;
   setSearchFor: React.Dispatch<React.SetStateAction<string>>;
   next(): void;
   goBack(): void;
@@ -50,6 +60,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -113,6 +124,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
     });
     setTimeout(() => {
       setIsLogin(false);
+      setUser({});
       localStorage.clear();
       navigate("/home", { replace: true });
     }, 2000);
@@ -131,6 +143,15 @@ export default function AuthProvider({ children }: IChildrenProps) {
       });
   }, [searchFor, nextPage]);
 
+  useEffect(() => {
+    const userId = localStorage.getItem("@userId");
+    const token = localStorage.getItem("@TOKEN");
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    api.get(`/users/${userId}`).then((res) => {
+      setUser(res.data);
+    });
+  }, [isLogin]);
+
   return (
     <AuthContext.Provider
       value={{
@@ -146,6 +167,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
         setIsLogin,
         setIsModal,
         setSearchFor,
+        user,
         goBack,
         next,
         search,

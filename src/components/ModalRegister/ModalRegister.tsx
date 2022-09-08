@@ -55,7 +55,6 @@ export default function ModalRegister() {
       })
       .then((res) => {
         if (res.status === 201) {
-          const { user } = res.data;
           toast.success("Registro realizado com sucesso", {
             autoClose: 1500,
             toastId: customId,

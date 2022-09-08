@@ -4,23 +4,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Header from "../../components/Header/Header";
 import { Container } from "./style";
-import api from '../../server/api';
+import api from "../../server/api";
 import Footer from "../../components/Footer/Footer";
 import AnimatedPage from "../../components/AnimatedPage";
 import ResetPage from "../../components/AboutTeam/ResetPage";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import CardUsuario from "../../components/CardUsuario/CardUsuario";
 
 interface IDataUserprops {
-  adress: string
-  cpf: number | string
-  email: string
-  id: number
-  name: string
-  phone: number
+  adress: string;
+  cpf: number | string;
+  email: string;
+  id: number;
+  name: string;
+  phone: number;
 }
 
 export interface IRegisterPerson {
-  id: number
+  id: number;
   name: string;
   age: number;
   description: string;
@@ -30,40 +31,45 @@ export interface IRegisterPerson {
   image?: string;
   contact: string;
   userId: number;
-  user: IDataUserprops
-};
+  user: IDataUserprops;
+}
 
 export default function DashBoard() {
-  const userId = Number(localStorage.getItem('@userId'));
+  const userId = Number(localStorage.getItem("@userId"));
 
   const schema = yup.object().shape({
-    name: yup.string().required('Campo obrigatório'),
-    age: yup.string().required('Campo obrigatório'),
-    description: yup.string().required('Campo obrigatório').max(70),
-    location: yup.string().required('Campo obrigatório'),
-    date: yup.string().required('Campo obrigatório'),
-    volunteer: yup.string().required('Campo obrigatório'),
+    name: yup.string().required("Campo obrigatório"),
+    age: yup.string().required("Campo obrigatório"),
+    description: yup.string().required("Campo obrigatório").max(70),
+    location: yup.string().required("Campo obrigatório"),
+    date: yup.string().required("Campo obrigatório"),
+    volunteer: yup.string().required("Campo obrigatório"),
     image: yup.string(),
-    contact: yup.string().email().required('Campo obrigatório')
+    contact: yup.string().email().required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit, formState: { errors } } = useForm<IRegisterPerson>({
-    resolver: yupResolver(schema)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IRegisterPerson>({
+    resolver: yupResolver(schema),
   });
 
   const onSubmit = (data: IRegisterPerson) => {
     data.userId = userId;
 
-    api.post('/database', data)
+    api
+      .post("/database", data)
       .then((res) => {
         if (res.status === 201) {
-          toast.success('Cadastro realizado')
-        };
+          toast.success("Cadastro realizado");
+        }
       })
       .catch((err) => {
         console.error(err);
         toast.error(`Ocorreu um erro. Tente novamente.`);
-      })
+      });
   };
 
   return (
@@ -72,23 +78,7 @@ export default function DashBoard() {
       <AnimatedPage>
         <Container>
           <section className="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequatur sit laudantium numquam corporis laborum culpa ducimus
-              omnis deleniti provident cum assumenda veritatis nihil delectus
-              maiores, facere minima aut dolor dolore.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
-              recusandae harum et quos veniam voluptatum odio at, fugit illum
-              ipsa vitae nihil id minus consectetur voluptatem commodi similique
-              quod maiores!
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum,
-              sapiente quod. Consectetur, ab animi. Rem error, dicta ipsa iusto
-              alias in soluta odio illum? Commodi porro doloribus aut sequi vel!
-            </p>
+            <CardUsuario />
           </section>
           <div className="form-container">
             <div className="form-header">
@@ -134,10 +124,7 @@ export default function DashBoard() {
               </div>
               <div className="input-container">
                 <label htmlFor="">Data de registro</label>
-                <input
-                  type="date"
-                  {...register("date")}
-                />
+                <input type="date" {...register("date")} />
                 <p className="error-message">{errors.date?.message}</p>
               </div>
 
@@ -176,5 +163,5 @@ export default function DashBoard() {
         <ResetPage />
       </AnimatedPage>
     </>
-  )
+  );
 }
