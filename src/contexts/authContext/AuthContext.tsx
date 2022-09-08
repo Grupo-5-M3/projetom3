@@ -2,6 +2,26 @@ import { ReactNode, createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { IRegisterPerson } from "../../pages/DashBoard/DashBoard";
 import api from "../../server/api";
+import { useNavigate } from "react-router-dom";
+
+interface IHomelessProps {
+  img: string;
+  name: string;
+  CPF: number;
+  age: number;
+  state: string;
+  lastLocation: string;
+  contact: number;
+}
+
+interface IUser {
+  name: string;
+  cnpj: string;
+  adress: string;
+  phone: string;
+  email: string;
+  password: string;
+}
 
 interface IUserConstext {
   isLogin: boolean;
@@ -16,11 +36,13 @@ interface IUserConstext {
   setIsRegister: (prevState: boolean) => boolean | void;
   setIsLogin: (prevState: boolean) => boolean | void;
   setIsModal: (prevState: boolean) => boolean | void;
+  user: IUser | any;
   setSearchFor: React.Dispatch<React.SetStateAction<string>>;
   next(): void;
   goBack(): void;
+
   search(): void;
-  logout(): void;
+  logout(e: any): void;
   deleteHomeless({ id }: IRegisterPerson): void;
   editHomeless(data: IRegisterPerson): void;
   setEdit: React.Dispatch<React.SetStateAction<IRegisterPerson>>
@@ -32,12 +54,12 @@ interface IUserConstext {
 interface IChildrenProps {
   children: ReactNode;
 }
+
 const customId = "custom-id-yes";
 
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext);
 
 export default function AuthProvider({ children }: IChildrenProps) {
-
   const [isLogin, setIsLogin] = useState(false);
   const [isModal, setIsModal] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
@@ -45,15 +67,19 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [nextPage, setNextPage] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
-  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isEdit, setIsEdit] = useState(false)
   const [edit, setEdit] = useState<IRegisterPerson>({} as IRegisterPerson)
   const [del, setDel] = useState<IRegisterPerson>({} as IRegisterPerson)
 
   useEffect(() => {
-    const token = localStorage.getItem('@TOKEN')
-    token ? setIsLogin(true) : setIsLogin(false)
-  }, [])
+    const token = localStorage.getItem("@TOKEN");
+    token ? setIsLogin(true) : setIsLogin(false);
+  }, []);
+  const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
 
   function next() {
     api
@@ -100,9 +126,18 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then((res) => setHomeLess(res.data));
   }
 
-  function logout() {
-    setIsLogin(false);
-    localStorage.clear();
+  function logout(e: any) {
+    e.preventDefault();
+    toast.success("Logout realizado com sucesso!", {
+      autoClose: 1500,
+      toastId: customId,
+    });
+    setTimeout(() => {
+      setIsLogin(false);
+      setUser({});
+      localStorage.clear();
+      navigate("/home", { replace: true });
+    }, 2000);
   }
 
   function deleteHomeless(user: IRegisterPerson) {
@@ -126,11 +161,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
     const token = localStorage.getItem("@TOKEN")
 
     if (token) {
-      api.patch(`database/${edit.id}`, data, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("@TOKEN")}`
-        },
-      })
+      api.patch(`database/${edit.id}`, data)
       toast.success("Editado com sucesso", {
         autoClose: 1500,
         toastId: customId,
@@ -154,6 +185,15 @@ export default function AuthProvider({ children }: IChildrenProps) {
       });
   }, [searchFor, nextPage, deleteHomeless, editHomeless]);
 
+  useEffect(() => {
+    const userId = localStorage.getItem("@userId");
+    const token = localStorage.getItem("@TOKEN");
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    api.get(`/users/${userId}`).then((res) => {
+      setUser(res.data);
+    });
+  }, [isLogin]);
+
   return (
     <AuthContext.Provider
       value={{
@@ -170,6 +210,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
         setIsLogin,
         setIsModal,
         setSearchFor,
+        user,
         goBack,
         next,
         search,

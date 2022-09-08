@@ -5,36 +5,33 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import api from "../../server/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+interface IRegisterPerson {
+  name: string;
+  cnpj: string;
+  adress: string;
+  phone: number;
+  email: string;
+  password: string;
+}
 
 export default function ModalRegister() {
   const { setIsRegister } = useContext(AuthContext);
-
-  const onSubmitFunction = async (data: any) => {
-    console.log(data);
-    try {
-      const response = await api.post("register", {
-        name: data.name,
-        cpf: data.cpf,
-        adress: data.adress,
-        phone: data.phone,
-        email: data.email,
-        password: data.password,
-      });
-      const { user } = response.data;
-
-      console.log(response);
-      console.log(user);
-
-      response.status === 201 && setIsRegister(false);
-
-      // navigate("dashboard", { replace: true });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const customId = "custom-id-yes";
 
   const formSchema = yup.object().shape({
-    email: yup.string().required("Email obrigatório"),
+    name: yup.string(),
+    cnpj: yup
+      .string()
+      .matches(
+        /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/,
+        "Formato inválido de cnpj"
+      ),
+    adress: yup.string(),
+    phone: yup.string(),
+    email: yup.string().email().required("Email obrigatório"),
     password: yup.string().required("Senha obrigatória"),
   });
 
@@ -42,20 +39,49 @@ export default function ModalRegister() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IRegisterPerson>({
     resolver: yupResolver(formSchema),
   });
+
+  const onSubmitFunction = (data: IRegisterPerson) => {
+    api
+      .post("register", {
+        name: data.name,
+        cnpj: data.cnpj,
+        adress: data.adress,
+        phone: data.phone,
+        email: data.email,
+        password: data.password,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          toast.success("Registro realizado com sucesso", {
+            autoClose: 1500,
+            toastId: customId,
+          });
+          setTimeout(() => setIsRegister(false), 2500);
+        }
+      })
+      .catch((error: any) => {
+        toast.error(`Error: ${error.response.data}`);
+        console.log(error.response.data);
+      });
+  };
 
   return (
     <DivBack>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h3>Cadastre-se</h3>
-        <label>Nome</label>
+        <label>Nome da instituição</label>
         <input type="text" placeholder="Digite o nome" {...register("name")} />
 
-        <label>CPF</label>
-        <input type="text" placeholder="Digite o CPF" {...register("cpf")} />
-
+        <label>CNPJ</label>
+        <input
+          type="text"
+          placeholder="Digite o CNPJ Ex: 00.000.000/0000-00"
+          {...register("cnpj")}
+        />
+        {errors.cnpj?.message}
         <label>Endereço</label>
         <input
           type="text"
@@ -96,6 +122,7 @@ export default function ModalRegister() {
           </p>
         </div>
       </form>
+      <ToastContainer />
     </DivBack>
   );
 }

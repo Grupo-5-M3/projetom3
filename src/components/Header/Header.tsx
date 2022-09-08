@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import ResetPage from "../AboutTeam/ResetPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Header() {
   const { isLogin, isModal, setIsModal, logout } = useContext(AuthContext);
@@ -59,6 +61,7 @@ export default function Header() {
           <AiOutlineMenu />
         </button>
       </DivMenu>
+      <ToastContainer />
       <ResetPage />
     </HeaderDiv>
   );
