@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BsSearch } from "react-icons/bs";
-import { GrNext, GrPrevious } from "react-icons/gr";
+import { GrEdit, GrNext, GrPrevious } from "react-icons/gr";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 import { ContainerHome } from "../Home/styles";
@@ -21,6 +21,8 @@ import Footer from "../../components/Footer/Footer";
 import ResetPage from "../../components/AboutTeam/ResetPage";
 import AnimatedPage from "../../components/AnimatedPage";
 import { Link } from "react-router-dom";
+import ModalEditHomeless from "../../components/ModalEditHomeless";
+import { BiTrash } from "react-icons/bi";
 
 export default function HomeLess() {
 
@@ -28,15 +30,29 @@ export default function HomeLess() {
     homeLess,
     isNextDisabled,
     isGoBackDisabled,
+    isEdit,
+
+
     search,
     setSearchFor,
     next,
     goBack,
+    deleteHomeless,
+    setEdit,
+    setIsEdit
+
   } = useContext(AuthContext);
 
 
   return (
     <ContainerHome>
+      {
+        isEdit
+          ?
+          <ModalEditHomeless />
+          :
+          <></>
+      }
       <Header />
       <AnimatedPage>
         <Main>
@@ -101,6 +117,13 @@ export default function HomeLess() {
                             {" "}
                             <span> Data: </span> {user.date}
                           </li>
+                          <div>
+                            <button onClick={() => {
+                              setEdit(user)
+                              setIsEdit(true)
+                            }}>{<GrEdit />}</button>
+                            <button onClick={() => deleteHomeless(user)}>{<BiTrash />}</button>
+                          </div>
                         </ul>
                       </figcaption>
                     </figure>

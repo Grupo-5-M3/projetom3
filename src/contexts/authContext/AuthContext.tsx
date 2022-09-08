@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { IRegisterPerson } from "../../pages/DashBoard/DashBoard";
 import api from "../../server/api";
 
@@ -10,6 +11,7 @@ interface IUserConstext {
   searchFor: string;
   isNextDisabled: boolean;
   isGoBackDisabled: boolean;
+  isEdit: boolean
 
   setIsRegister: (prevState: boolean) => boolean | void;
   setIsLogin: (prevState: boolean) => boolean | void;
@@ -19,11 +21,18 @@ interface IUserConstext {
   goBack(): void;
   search(): void;
   logout(): void;
+  deleteHomeless({ id }: IRegisterPerson): void;
+  editHomeless(data: IRegisterPerson): void;
+  setEdit: React.Dispatch<React.SetStateAction<IRegisterPerson>>
+  setDel: React.Dispatch<React.SetStateAction<IRegisterPerson>>
+  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>
+
 }
 
 interface IChildrenProps {
   children: ReactNode;
 }
+const customId = "custom-id-yes";
 
 export const AuthContext = createContext<IUserConstext>({} as IUserConstext);
 
@@ -37,6 +46,9 @@ export default function AuthProvider({ children }: IChildrenProps) {
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isGoBackDisabled, setIsGoBackDisabled] = useState(true);
   const [homeLess, setHomeLess] = useState<IRegisterPerson[]>([]);
+  const [isEdit, setIsEdit] = useState(false)
+  const [edit, setEdit] = useState<IRegisterPerson>({} as IRegisterPerson)
+  const [del, setDel] = useState<IRegisterPerson>({} as IRegisterPerson)
 
   useEffect(() => {
     const token = localStorage.getItem('@TOKEN')
@@ -93,6 +105,42 @@ export default function AuthProvider({ children }: IChildrenProps) {
     localStorage.clear();
   }
 
+  function deleteHomeless(user: IRegisterPerson) {
+    const token = localStorage.getItem("@TOKEN")
+    if (token) {
+      api.delete(`database/${user.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("@TOKEN")}`
+        }
+      })
+      toast.success("Excluido com sucesso", {
+        autoClose: 1500,
+        toastId: customId,
+      })
+    } else {
+      toast.error(`Necessario login`)
+    }
+  }
+
+  function editHomeless(data: IRegisterPerson) {
+    const token = localStorage.getItem("@TOKEN")
+
+    if (token) {
+      api.patch(`database/${edit.id}`, data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("@TOKEN")}`
+        },
+      })
+      toast.success("Editado com sucesso", {
+        autoClose: 1500,
+        toastId: customId,
+      })
+    } else {
+      toast.error(`Necessario login`)
+    }
+    setIsEdit(false)
+  }
+
   useEffect(() => {
     api
       .get("database?_expand=user", {
@@ -104,7 +152,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
       .then((res) => {
         setHomeLess(res.data);
       });
-  }, [searchFor, nextPage]);
+  }, [searchFor, nextPage, deleteHomeless, editHomeless]);
 
   return (
     <AuthContext.Provider
@@ -116,6 +164,7 @@ export default function AuthProvider({ children }: IChildrenProps) {
         isNextDisabled,
         isGoBackDisabled,
         isRegister,
+        isEdit,
 
         setIsRegister,
         setIsLogin,
@@ -125,6 +174,12 @@ export default function AuthProvider({ children }: IChildrenProps) {
         next,
         search,
         logout,
+        deleteHomeless,
+        editHomeless,
+        setEdit,
+        setDel,
+        setIsEdit
+
       }}
     >
       {children}
