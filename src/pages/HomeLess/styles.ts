@@ -127,7 +127,7 @@ export const BodyMissing = styled.ul`
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   background: #f5f5f5;
   border-radius: 6px;
   margin-top: 20px;
