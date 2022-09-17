@@ -37,6 +37,8 @@ export default function HomeLess() {
     goBack,
   } = useContext(AuthContext);
 
+  console.log(homeLess);
+
   return (
     <ContainerHome>
       <Header />
@@ -69,47 +71,59 @@ export default function HomeLess() {
               </DirectionsTop>
             </HeaderSearchHomeLess>
             <BodyMissing>
-              {homeLess.map((user) => (
-                <CardHomeLess key={user.id}>
-                  <Link to="#">
-                    <figure>
-                      <img src={imgTeste} alt="Foto do usuario" />
-                      <figcaption>
-                        <ul>
-                          <li>
-                            {" "}
-                            <span> Nome: </span> {user.name}
-                          </li>
-                          <li>
-                            {" "}
-                            <span> Idade: </span> {user.age}
-                          </li>
-                          <li>
-                            {" "}
-                            <span> Descrição física: </span> {user.description}
-                          </li>
-                          <li>
-                            {" "}
-                            <span> Local de registro: </span> {user.location}
-                          </li>
-                          <li>
-                            {" "}
-                            <span> Voluntário: </span> {user.volunteer}
-                          </li>
-                          <li>
-                            {" "}
-                            <span> Contato: </span> {user.user.phone}
-                          </li>
-                          <li>
-                            {" "}
-                            <span> Data: </span> {user.date}
-                          </li>
-                        </ul>
-                      </figcaption>
-                    </figure>
-                  </Link>
-                </CardHomeLess>
-              ))}
+              {homeLess.length === 0 ? (
+                <h2>Nenhum resultado encontrado</h2>
+              ) : (
+                homeLess.map((user) => (
+                  <CardHomeLess key={user.id}>
+                    <Link to="#">
+                      <figure>
+                        <img
+                          src={
+                            user.image?.includes("https")
+                              ? user.image
+                              : imgTeste
+                          }
+                          alt="Foto do usuario"
+                        />
+                        <figcaption>
+                          <ul>
+                            <li>
+                              {" "}
+                              <span> Nome: </span> {user.name}
+                            </li>
+                            <li>
+                              {" "}
+                              <span> Idade: </span> {user.age}
+                            </li>
+                            <li>
+                              {" "}
+                              <span> Descrição física: </span>{" "}
+                              {user.description}
+                            </li>
+                            <li>
+                              {" "}
+                              <span> Local de registro: </span> {user.location}
+                            </li>
+                            <li>
+                              {" "}
+                              <span> Voluntário: </span> {user.volunteer}
+                            </li>
+                            <li>
+                              {" "}
+                              <span> Contato: </span> {user.contact}
+                            </li>
+                            <li>
+                              {" "}
+                              <span> Data: </span> {user.date}
+                            </li>
+                          </ul>
+                        </figcaption>
+                      </figure>
+                    </Link>
+                  </CardHomeLess>
+                ))
+              )}
             </BodyMissing>
 
             <DirectionsBottom>

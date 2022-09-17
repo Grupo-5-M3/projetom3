@@ -4,18 +4,16 @@ export const BodyHomeLess = styled.div`
   margin: 70px 0px 0px 0px;
   padding: 30px 13px 0px 30px;
 
-  @media(max-width: 600px) {
-    background-color: #F5F5F5;
+  @media (max-width: 600px) {
+    background-color: #f5f5f5;
   }
-`
+`;
 
 export const Main = styled.main`
-
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     /* background-color: #4BD18E; */
   }
-`
-
+`;
 
 export const HeaderSearchHomeLess = styled.header`
   display: flex;
@@ -23,11 +21,11 @@ export const HeaderSearchHomeLess = styled.header`
   max-width: 1240px;
   margin: 0 auto;
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     margin: auto;
     width: 16.875em;
   }
-`
+`;
 export const Search = styled.div`
   width: 22.5625em;
   height: 2.625em;
@@ -39,18 +37,18 @@ export const Search = styled.div`
     border: none;
     width: 306px;
     height: 42px;
-    background: #D9D9D9;
+    background: #d9d9d9;
     border-radius: 8px;
     padding: 20px;
 
-    @media(max-width: 600px) {
+    @media (max-width: 600px) {
       width: 216px;
       background-color: white;
     }
   }
 
-  input:focus{
-    border:none;
+  input:focus {
+    border: none;
     outline: none;
     box-shadow: 0 0 5px 3px var(--gray-50);
   }
@@ -64,22 +62,21 @@ export const Search = styled.div`
     width: 43px;
     align-items: center;
     justify-content: center;
-    color:white;
+    color: white;
   }
 
-  button:hover{
+  button:hover {
     background-color: var(--gray-20);
-    color:var(--gray-50);
+    color: var(--gray-50);
     box-shadow: 0 0 5px 2px var(--gray-50);
     transition: all 1.5s;
   }
 
-  svg{
+  svg {
     width: 50%;
     height: 50%;
   }
-
-`
+`;
 
 export const DirectionsTop = styled.div`
   width: 3.75em;
@@ -93,15 +90,15 @@ export const DirectionsTop = styled.div`
     width: 50px;
   }
 
-  svg{
+  svg {
     width: 100%;
     height: 100%;
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     display: none;
   }
-`
+`;
 export const DirectionsBottom = styled.div`
   width: 3.75em;
   display: flex;
@@ -112,60 +109,65 @@ export const DirectionsBottom = styled.div`
   button {
     border: none;
     width: 50px;
-    color:var(--gray-0);
+    color: var(--gray-0);
   }
 
-  svg{
+  svg {
     width: 100%;
     height: 100%;
   }
 
-  @media(min-width: 600px) {
+  @media (min-width: 600px) {
     display: none;
   }
-`
+`;
 
 export const BodyMissing = styled.ul`
-  max-width:1240px;
+  max-width: 1240px;
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  background: #F5F5F5;
+  background: #f5f5f5;
   border-radius: 6px;
   margin-top: 20px;
   padding-bottom: 20px;
+  min-height: 387px;
 
-  @media(max-width: 600px) {
+  h2 {
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
     flex-wrap: nowrap;
     overflow-y: auto;
     justify-content: space-between;
   }
-`
+`;
 
 export const CardHomeLess = styled.li`
   display: flex;
   flex-direction: column;
   width: 17.0625em;
   height: 21.6875em;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 8px;
   margin-top: 20px;
   margin-right: 20px;
-  
-  figure{
+
+  figure {
     cursor: pointer;
   }
 
-  figure:hover{
+  figure:hover {
     box-shadow: 0 0 5px 4px var(--gray-50);
     border-radius: 11px;
-    transition: all 0.5s
+    transition: all 0.5s;
   }
 
-  a{
+  a {
     text-decoration: none;
-    color:var(--gray-100);
+    color: var(--gray-100);
   }
 
   img {
@@ -184,10 +186,10 @@ export const CardHomeLess = styled.li`
 
     span {
       font-weight: 900;
-      cursor:pointer;
+      cursor: pointer;
     }
 
-    ul li{
+    ul li {
       cursor: pointer;
     }
 
@@ -199,8 +201,7 @@ export const CardHomeLess = styled.li`
     }
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     margin-right: 20px;
   }
-
-`
+`;
