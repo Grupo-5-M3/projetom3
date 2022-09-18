@@ -148,8 +148,7 @@ export default function DashBoard() {
               <div className="input-container">
                 <label htmlFor="">Contato da instituição</label>
                 <input
-                  type="email"
-                  placeholder="Email da instituição"
+                  placeholder="Telefone da instituição"
                   {...register("contact")}
                 />
                 <p className="error-message">{errors.contact?.message}</p>
