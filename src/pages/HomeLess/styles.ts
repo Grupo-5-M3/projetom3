@@ -134,8 +134,12 @@ export const BodyMissing = styled.ul`
   padding-bottom: 20px;
   min-height: 387px;
 
-  h2 {
-    text-align: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (max-width: 600px) {

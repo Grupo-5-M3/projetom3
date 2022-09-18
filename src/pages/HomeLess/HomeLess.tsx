@@ -72,7 +72,10 @@ export default function HomeLess() {
             </HeaderSearchHomeLess>
             <BodyMissing>
               {homeLess.length === 0 ? (
-                <h2>Nenhum resultado encontrado</h2>
+                <div>
+                  <p>Ops...</p>
+                  <p>Nenhum resultado encontrado!</p>
+                </div>
               ) : (
                 homeLess.map((user) => (
                   <CardHomeLess key={user.id}>
